@@ -24,7 +24,6 @@
   html { scroll-behavior: smooth; }
   body { background: var(--bg); color: var(--text); font-family: var(--mono); font-size: 16px; line-height: 1.7; }
 
-  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0;
     display: flex; justify-content: space-between; align-items: center;
@@ -39,7 +38,6 @@
   .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; cursor: pointer; }
   .nav-links a:hover { color: var(--accent); }
 
-  /* HERO */
   #hero {
     min-height: 100vh;
     display: flex; flex-direction: column; justify-content: center;
@@ -58,14 +56,12 @@
   .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--muted); }
   .btn-outline:hover { border-color: var(--accent); color: var(--accent); background: transparent; }
 
-  /* SECTIONS */
   .section-wrap { max-width: 1100px; margin: 0 auto; padding: 6rem 3rem; }
   .section-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 3.5rem; }
   .section-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); white-space: nowrap; }
   .section-header-line { flex: 1; height: 1px; background: var(--border); }
   .section-num { font-size: 0.7rem; letter-spacing: 0.1em; color: var(--border); }
 
-  /* ABOUT */
   .about-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 5rem; align-items: start; }
   .about-aside h2 { font-family: var(--sans); font-size: 2rem; font-weight: normal; line-height: 1.1; margin-bottom: 1rem; }
   .about-aside .location { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.04em; }
@@ -73,7 +69,6 @@
   .about-skills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
   .tag { padding: 0.35rem 0.9rem; background: var(--accent-light); color: var(--accent); font-size: 0.75rem; letter-spacing: 0.04em; border: 1px solid var(--accent-dark); }
 
-  /* EXPERIENCE */
   .exp-item { display: grid; grid-template-columns: 160px 1fr; gap: 2.5rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
   .exp-item:first-child { border-top: 1px solid var(--border); }
   .exp-date { font-size: 0.8rem; color: var(--muted); padding-top: 0.25rem; }
@@ -81,9 +76,8 @@
   .exp-role .company { font-size: 0.875rem; color: var(--accent); margin-bottom: 0.75rem; }
   .exp-role p { font-size: 0.9rem; color: var(--muted); }
 
-  /* PROJECTS */
   .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); }
-  .project-card { background: var(--surface); padding: 2.25rem; transition: background 0.2s; text-decoration: none; color: inherit; display: block; }
+  .project-card { background: var(--surface); padding: 2.25rem; transition: background 0.2s; color: inherit; display: block; }
   .project-card:hover { background: var(--surface2); }
   .project-cat { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.85rem; }
   .project-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.6rem; }
@@ -92,7 +86,6 @@
   .video-wrap { position: relative; width: 100%; padding-top: 56.25%; margin-bottom: 1.25rem; background: #000; }
   .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-  /* CONTACT */
   .contact-aside h2 { font-family: var(--sans); font-size: 2rem; font-weight: normal; line-height: 1.1; margin-bottom: 1rem; }
   .contact-aside p { font-size: 0.9rem; color: var(--muted); margin-bottom: 1.5rem; }
   .contact-links { list-style: none; }
@@ -100,7 +93,6 @@
   .contact-links a { color: var(--muted); font-size: 0.9rem; text-decoration: none; transition: color 0.2s; }
   .contact-links a:hover { color: var(--accent); }
 
-  /* FOOTER */
   footer { border-top: 1px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; }
   footer p { font-size: 0.8rem; color: var(--muted); }
   footer a { color: var(--muted); text-decoration: none; }
@@ -119,7 +111,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-name">Leora Soibelman</a>
   <ul class="nav-links">
@@ -130,7 +121,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-inner">
     <p class="hero-label">Sports Media, Production &amp; Editing</p>
@@ -143,7 +133,6 @@
   </div>
 </section>
 
-<!-- ABOUT -->
 <div style="border-top:1px solid var(--border);">
   <div class="section-wrap" id="about">
     <div class="section-header">
@@ -154,12 +143,12 @@
     <div class="about-grid">
       <div class="about-aside">
         <h2>Filmmaker &amp; Media Producer</h2>
-        <p class="location" style="margin-top:0.75rem;">Edinburgh → Boston</p>
+        <p class="location" style="margin-top:0.75rem;">Edinburgh / Boston</p>
       </div>
       <div class="about-body">
         <p>I'm a final-year student at the University of Edinburgh and an award-winning filmmaker with a passion for storytelling through post-production. My work spans feature-length documentary, client video, short-form content, and live sports production.</p>
-        <p>As President of Edinburgh University Television (EUTV), I led the station to a record 8 nominations and 6 wins at national awards events — including recognition from the Royal Television Society and NaSTA.</p>
-        <p>I'm especially drawn to the intersection of sport and media — how stories of competition, culture, and community come to life on screen. My live production experience includes a Production Runner role at the US Open with Van Wagner.</p>
+        <p>As President of Edinburgh University Television (EUTV), I led the station to a record 8 nominations and 6 wins at national awards events, including recognition from the Royal Television Society and NaSTA.</p>
+        <p>I'm especially drawn to the intersection of sport and media and how stories of competition, culture, and community come to life on screen. My live production experience includes a Production Runner role at the US Open with Van Wagner.</p>
         <div class="about-skills">
           <span class="tag">Post-production</span>
           <span class="tag">Live sports production</span>
@@ -174,7 +163,6 @@
   </div>
 </div>
 
-<!-- EXPERIENCE -->
 <div style="border-top:1px solid var(--border);">
   <div class="section-wrap" id="experience">
     <div class="section-header">
@@ -214,7 +202,6 @@
   </div>
 </div>
 
-<!-- WORK -->
 <div style="border-top:1px solid var(--border);">
   <div class="section-wrap" id="projects">
     <div class="section-header">
@@ -224,9 +211,8 @@
     </div>
     <div class="projects-grid">
 
-      <!-- FEATURED -->
       <div class="project-card" style="grid-column:1/-1; background:var(--accent-light); border-bottom:2px solid var(--accent);">
-        <div class="project-cat">⭐ Featured Work</div>
+        <div class="project-cat">Featured Work</div>
         <h3>University of Edinburgh Sports Union — International Women's Day</h3>
         <div class="video-wrap" style="margin:1.25rem 0;">
           <iframe src="https://www.youtube.com/embed/mvjqtEFTc0M" allowfullscreen></iframe>
@@ -259,16 +245,7 @@
         <div class="video-wrap">
           <iframe src="https://www.youtube.com/embed/etzh6KZOzlY" allowfullscreen></iframe>
         </div>
-        <p>A two-part documentary on student integration at the University of Edinburgh — examining lived experience and the structural barriers behind it.</p>
-      </div>
-
-      <div class="project-card">
-        <div class="project-cat">Client Work</div>
-        <h3>How to Citizen</h3>
-        <div class="video-wrap">
-          <iframe src="https://www.youtube.com/embed/videoseries?list=PLFJXr-o-H0SEIljAUgJ6YQqlXrkiVCLIo" allowfullscreen></iframe>
-        </div>
-        <p>Produced the majority of video content for the Dave Cavell for Congress campaign, alongside social media graphics and broader communications strategy.</p>
+        <p>A two-part documentary on student integration at the University of Edinburgh, examining lived experience and the structural barriers behind it.</p>
       </div>
 
       <div class="project-card">
@@ -279,15 +256,27 @@
         </div>
         <p>Promotional content produced for the Medics' Reveal show at the Usher Hall, Edinburgh.</p>
       </div>
+
+      <div class="project-card">
+        <div class="project-cat">Client Work</div>
+        <h3>Cavell for Congress</h3>
         <div class="video-wrap">
-          <iframe src="https://www.youtube.com/embed/videoseries?list=PLFJXr-o-H0SH7i_MYg70GyR4T_lhar2Cp" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/videoseries?list=PLFJXr-o-H0SEIljAUgJ6YQqlXrkiVCLIo" allowfullscreen></iframe>
         </div>
-        <p>Editor and video producer for an award-winning podcast — shaping episodes into platform-specific cuts tailored for digital and social audiences.</p>
+        <p>Produced the majority of video content for the Dave Cavell for Congress campaign, alongside social media graphics and broader communications strategy.</p>
       </div>
 
       <div class="project-card">
         <div class="project-cat">Client Work</div>
-        <h3>Cavell for Congress</h3> — Sports</div>
+        <h3>How to Citizen</h3>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/videoseries?list=PLFJXr-o-H0SH7i_MYg70GyR4T_lhar2Cp" allowfullscreen></iframe>
+        </div>
+        <p>Editor and video producer for an award-winning podcast, shaping episodes into platform-specific cuts tailored for digital and social audiences.</p>
+      </div>
+
+      <div class="project-card" style="grid-column:1/-1;">
+        <div class="project-cat">Photography — Sports</div>
         <h3>Sports Photography</h3>
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:1.25rem 0;">
           <img src="https://i.imgur.com/RcfbPn3.jpeg" alt="Sports" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
@@ -332,7 +321,6 @@
   </div>
 </div>
 
-<!-- CONTACT -->
 <div style="border-top:1px solid var(--border);">
   <div class="section-wrap" id="contact">
     <div class="section-header">
@@ -342,7 +330,7 @@
     </div>
     <div class="contact-aside">
       <h2>Let's work together.</h2>
-      <p>Open to freelance projects, production roles, and collaboration. Based in Edinburgh — returning to Boston in May 2026.</p>
+      <p>Open to freelance projects, production roles, and collaboration. Based in Edinburgh, returning to Boston in May 2026.</p>
       <ul class="contact-links">
         <li><a href="mailto:leorasoib@gmail.com">leorasoib@gmail.com</a></li>
         <li><a href="https://www.linkedin.com/in/leorasoibelman" target="_blank">LinkedIn</a></li>
