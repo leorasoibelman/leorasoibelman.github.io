@@ -33,8 +33,355 @@
     border-bottom: 1px solid var(--border);
     z-index: 100;
   }
-  .nav-name { font-family: var(--mono); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); text-decoration: none; }
+  .nav-name { font-family: var(--mono); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); text-decoration: none; white-space: nowrap; }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; cursor: pointer; }
+  .nav-links a:hover { color: var(--accent); }
+  @media (max-width: 600px) {
+    nav { flex-direction: column; align-items: flex-start; gap: 0.75rem; padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.25rem; }
+    .nav-links a { font-size: 0.72rem; }
+  }
+
+  #hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 8rem 3rem 5rem;
+    background: linear-gradient(to right, rgba(18,17,26,0.95) 50%, rgba(18,17,26,0.55) 100%), url('https://i.imgur.com/09dlHj7.jpeg') center/cover no-repeat;
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
+  .hero-label { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .hero-label::before { content: ''; display: inline-block; width: 32px; height: 1px; background: var(--accent); }
+  .hero-name { font-family: var(--sans); font-size: clamp(3rem, 8vw, 6rem); font-weight: normal; line-height: 1.05; letter-spacing: -0.01em; margin-bottom: 2rem; color: var(--text); }
+  .hero-name span { color: var(--accent); }
+  .hero-tagline { font-size: 1.05rem; color: var(--muted); max-width: 500px; margin-bottom: 3rem; line-height: 1.7; border-left: 2px solid var(--accent); padding-left: 1.25rem; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 0.85rem 2rem; background: var(--accent); color: #fff; text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em; transition: background 0.2s; cursor: pointer; border: none; }
+  .btn:hover { background: var(--accent-dark); }
+  .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--muted); }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); background: transparent; }
+
+  .section-wrap { max-width: 1100px; margin: 0 auto; padding: 6rem 3rem; }
+  .section-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 3.5rem; }
+  .section-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); white-space: nowrap; }
+  .section-header-line { flex: 1; height: 1px; background: var(--border); }
+  .section-num { font-size: 0.7rem; letter-spacing: 0.1em; color: var(--border); }
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 5rem; align-items: start; }
+  .about-aside h2 { font-family: var(--sans); font-size: 2rem; font-weight: normal; line-height: 1.1; margin-bottom: 1rem; }
+  .about-aside .location { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.04em; }
+  .about-body p { color: var(--muted); margin-bottom: 1.25rem; font-size: 0.95rem; }
+  .about-skills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
+  .tag { padding: 0.35rem 0.9rem; background: var(--accent-light); color: var(--accent); font-size: 0.75rem; letter-spacing: 0.04em; border: 1px solid var(--accent-dark); }
+
+  .exp-item { display: grid; grid-template-columns: 160px 1fr; gap: 2.5rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
+  .exp-item:first-child { border-top: 1px solid var(--border); }
+  .exp-date { font-size: 0.8rem; color: var(--muted); padding-top: 0.25rem; }
+  .exp-role h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.2rem; }
+  .exp-role .company { font-size: 0.875rem; color: var(--accent); margin-bottom: 0.75rem; }
+  .exp-role p { font-size: 0.9rem; color: var(--muted); }
+
+  .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); }
+  .project-card { background: var(--surface); padding: 2.25rem; transition: background 0.2s; color: inherit; display: block; }
+  .project-card:hover { background: var(--surface2); }
+  .project-cat { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.85rem; }
+  .project-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.6rem; }
+  .project-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+  .award-badge { margin-top: 0.85rem; font-size: 0.72rem; color: var(--accent); padding: 0.3rem 0.7rem; border: 1px solid var(--accent-dark); display: inline-block; }
+  .video-wrap { position: relative; width: 100%; padding-top: 56.25%; margin-bottom: 1.25rem; background: #000; }
+  .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+  .lb-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:999; align-items:center; justify-content:center; cursor:zoom-out; }
+  .lb-overlay.active { display:flex; }
+  .lb-overlay img { max-width:90vw; max-height:90vh; object-fit:contain; box-shadow:0 0 60px rgba(0,0,0,0.8); }
+  .lb-close { position:fixed; top:1.5rem; right:1.5rem; color:#fff; font-size:2rem; cursor:pointer; line-height:1; opacity:0.7; }
+  .lb-close:hover { opacity:1; }
+  .gallery-img { cursor:zoom-in; transition: opacity 0.2s; }
+  .gallery-img:hover { opacity: 0.85; } font-family: var(--sans); font-size: 2rem; font-weight: normal; line-height: 1.1; margin-bottom: 1rem; }
+  .contact-aside p { font-size: 0.9rem; color: var(--muted); margin-bottom: 1.5rem; }
+  .contact-links { list-style: none; }
+  .contact-links li { margin-bottom: 0.6rem; }
+  .contact-links a { color: var(--muted); font-size: 0.9rem; text-decoration: none; transition: color 0.2s; }
+  .contact-links a:hover { color: var(--accent); }
+
+  footer { border-top: 1px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; }
+  footer p { font-size: 0.8rem; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+
+  @media (max-width: 700px) {
+    nav { padding: 1rem 1.5rem; }
+    .section-wrap { padding: 4rem 1.5rem; }
+    #hero { padding: 7rem 1.5rem 4rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.4rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="lb-overlay" id="lightbox" onclick="closeLB()">
+  <span class="lb-close">&times;</span>
+  <img id="lb-img" src="" alt="" />
+</div>
+
+<nav>
+  <a href="#" class="nav-name">Leora Soibelman</a>
+  <ul class="nav-links">
+    <li><a onclick="goTo('about')">About</a></li>
+    <li><a onclick="goTo('experience')">Experience</a></li>
+    <li><a onclick="goTo('projects')">Work</a></li>
+    <li><a onclick="goTo('contact')">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-inner">
+    <p class="hero-label">Sports Media, Production &amp; Editing</p>
+    <h1 class="hero-name">Leora<br><span>Soibelman</span></h1>
+    <p class="hero-tagline">Producer, editor, and storyteller. Bringing sports, culture, and community to life on screen.</p>
+    <div class="hero-btns">
+      <a onclick="goTo('projects')" class="btn">View My Work</a>
+      <a onclick="goTo('contact')" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<div style="border-top:1px solid var(--border);">
+  <div class="section-wrap" id="about">
+    <div class="section-header">
+      <span class="section-label">About</span>
+      <div class="section-header-line"></div>
+      <span class="section-num">01</span>
+    </div>
+    <div class="about-grid">
+      <div class="about-aside">
+        <h2>Filmmaker &amp; Media Producer</h2>
+        <p class="location" style="margin-top:0.75rem;">Edinburgh / Boston</p>
+      </div>
+      <div class="about-body">
+        <p>I'm a final-year student at the University of Edinburgh and an award-winning filmmaker with a passion for storytelling through post-production. My work spans feature-length documentary, client video, short-form content, and live sports production.</p>
+        <p>As President of Edinburgh University Television (EUTV), I led the station to a record 8 nominations and 6 wins at national awards events, including recognition from the Royal Television Society and NaSTA.</p>
+        <p>I'm especially drawn to the intersection of sport and media and how stories of competition, culture, and community come to life on screen. My live production experience includes a Production Runner role at the US Open with Van Wagner.</p>
+        <div class="about-skills">
+          <span class="tag">Post-production</span>
+          <span class="tag">Live sports production</span>
+          <span class="tag">Documentary</span>
+          <span class="tag">Client video</span>
+          <span class="tag">Short-form &amp; social</span>
+          <span class="tag">Photography</span>
+          <span class="tag">Spanish (working)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="border-top:1px solid var(--border);">
+  <div class="section-wrap" id="experience">
+    <div class="section-header">
+      <span class="section-label">Experience</span>
+      <div class="section-header-line"></div>
+      <span class="section-num">02</span>
+    </div>
+    <div>
+      <div class="exp-item">
+        <div class="exp-date">Aug – Sep 2025</div>
+        <div class="exp-role">
+          <h3>Production Runner / Assistant</h3>
+          <div class="company">Van Wagner / USTA US Open, NYC</div>
+          <p>Supported live, in-venue production at one of the world's premier tennis events, contributing to seamless fan-facing entertainment on a show court. Stepped into replay operations responsibilities on a show court when a colleague was unexpectedly out sick, ensuring uninterrupted playback and timing during live matches.</p>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">Mar 2024 – Mar 2025</div>
+        <div class="exp-role">
+          <h3>President / Station Manager</h3>
+          <div class="company">Edinburgh University Television (EUTV)</div>
+          <p>Led and grew the university's student television station, overseeing all production workflows and creative output. Drove EUTV to record success, earning 8 national nominations and 6 wins across major student television awards. Designed and implemented production systems, workshops, and editorial standards that raised output quality and consistency.</p>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">Ongoing</div>
+        <div class="exp-role">
+          <h3>Freelance Producer &amp; Editor</h3>
+          <div class="company">Independent</div>
+          <p>Client video, documentary, and digital content across sports, culture, and branded storytelling.</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:2rem;">
+      <a href="https://drive.google.com/file/d/1nofugEsJ89bEG71yun94gGYig-Htf6sn/view?usp=share_link" target="_blank" class="btn btn-outline">View Full CV &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<div style="border-top:1px solid var(--border);">
+  <div class="section-wrap" id="projects">
+    <div class="section-header">
+      <span class="section-label">Work</span>
+      <div class="section-header-line"></div>
+      <span class="section-num">03</span>
+    </div>
+    <div class="projects-grid">
+
+      <div class="project-card" style="grid-column:1/-1; background:var(--accent-light); border-bottom:2px solid var(--accent);">
+        <div class="project-cat">Featured Work</div>
+        <h3>University of Edinburgh Sports Union — International Women's Day</h3>
+        <div class="video-wrap" style="margin:1.25rem 0;">
+          <iframe src="https://www.youtube.com/embed/mvjqtEFTc0M" allowfullscreen></iframe>
+        </div>
+        <p>A short produced for the University of Edinburgh Sports Union to mark International Women's Day.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-cat">Narrative &amp; Documentary</div>
+        <h3>TARASPOTTING</h3>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/ynhiHpwuA4I" allowfullscreen></iframe>
+        </div>
+        <p>A mockumentary following an Edinburgh student with an overbearing ego and a cast of misfit actors as she attempts to direct a film inspired by Trainspotting.</p>
+        <div class="award-badge">🏆 RTS Scotland 2025 &nbsp;·&nbsp; NaSTA Bronze 2024</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-cat">Narrative &amp; Documentary</div>
+        <h3>Shapes of Days</h3>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/Babdx26SjiU" allowfullscreen></iframe>
+        </div>
+        <p>The short focuses on Ryan, a quiet, introspective student in a state of emotional and existential drift. Although cared for by those around him, he often observes more than participates, internalising his struggles outside of fleeting moments of openness.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-cat">Narrative &amp; Documentary</div>
+        <h3>FLAGGED</h3>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/etzh6KZOzlY" allowfullscreen></iframe>
+        </div>
+        <p>A two-part documentary on student integration at the University of Edinburgh, examining lived experience and the structural barriers behind it.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-cat">Client Work &amp; Social</div>
+        <h3>Medics Reveal Promo</h3>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/SJnMXIPeoEc" allowfullscreen></iframe>
+        </div>
+        <p>Promotional content produced for the Medics' Reveal show at the Usher Hall, Edinburgh.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-cat">Client Work</div>
+        <h3>Cavell for Congress</h3>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/videoseries?list=PLFJXr-o-H0SEIljAUgJ6YQqlXrkiVCLIo" allowfullscreen></iframe>
+        </div>
+        <p>Produced the majority of video content for the Dave Cavell for Congress campaign, alongside social media graphics and broader communications strategy.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-cat">Client Work</div>
+        <h3>How to Citizen</h3>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/videoseries?list=PLFJXr-o-H0SH7i_MYg70GyR4T_lhar2Cp" allowfullscreen></iframe>
+        </div>
+        <p>Editor and video producer for an award-winning podcast, shaping episodes into platform-specific cuts tailored for digital and social audiences.</p>
+      </div>
+
+      <div class="project-card" style="grid-column:1/-1;">
+        <div class="project-cat">Photography — Sports</div>
+        <h3>Sports Photography</h3>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:1.25rem 0;">
+          <img src="https://i.imgur.com/RcfbPn3.jpeg" alt="Sports" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <img src="https://i.imgur.com/1pmR79o.jpeg" alt="Sports" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <img src="https://i.imgur.com/9tBIy51.jpeg" alt="Sports" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <img src="https://i.imgur.com/afbqcsS.jpeg" alt="Sports" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <img src="https://i.imgur.com/BpKVj5O.jpeg" alt="Sports" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <img src="https://i.imgur.com/0JcjuR5.jpeg" alt="Sports" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <img src="https://i.imgur.com/yydMtVu.jpeg" alt="Sports" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <img src="https://i.imgur.com/aJO616A.jpeg" alt="Sports" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+        </div>
+        <p>Still photography across live sporting events, capturing action and atmosphere on the ground.</p>
+      </div>
+
+      <div class="project-card" style="grid-column:1/-1;">
+        <div class="project-cat">Photography — Landscape</div>
+        <h3>Landscape Photography</h3>
+        <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin:1.25rem 0;">
+          <img src="https://i.imgur.com/FaRAQjD.jpeg" alt="Landscape" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <img src="https://i.imgur.com/nTkqJQv.jpeg" alt="Landscape" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <img src="https://i.imgur.com/ccuI5CH.jpeg" alt="Landscape" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <img src="https://i.imgur.com/T3tllmF.jpeg" alt="Landscape" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <img src="https://i.imgur.com/ji5UxUH.jpeg" alt="Landscape" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <img src="https://i.imgur.com/MMoBGXH.jpeg" alt="Landscape" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <img src="https://i.imgur.com/0Njapjb.jpeg" alt="Landscape" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <img src="https://i.imgur.com/tLVGex7.jpeg" alt="Landscape" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <img src="https://i.imgur.com/G4A4Dqs.jpeg" alt="Landscape" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <img src="https://i.imgur.com/MNNuodw.jpeg" alt="Landscape" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <img src="https://i.imgur.com/RfsTRs4.jpeg" alt="Landscape" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <img src="https://i.imgur.com/TfqQ61W.jpeg" alt="Landscape" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <img src="https://i.imgur.com/KTr5Qop.jpeg" alt="Landscape" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <img src="https://i.imgur.com/pTId3Os.jpeg" alt="Landscape" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <img src="https://i.imgur.com/9jq4QUK.jpeg" alt="Landscape" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <img src="https://i.imgur.com/rVIOoe0.jpeg" alt="Landscape" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <img src="https://i.imgur.com/UNN6tVE.jpeg" alt="Landscape" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <img src="https://i.imgur.com/M8QwjiJ.jpeg" alt="Landscape" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+        </div>
+        <p>Landscape and travel photography shot across the US, Peru, Scotland, and beyond.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div style="border-top:1px solid var(--border);">
+  <div class="section-wrap" id="contact">
+    <div class="section-header">
+      <span class="section-label">Contact</span>
+      <div class="section-header-line"></div>
+      <span class="section-num">04</span>
+    </div>
+    <div class="contact-aside">
+      <h2>Let's work together.</h2>
+      <p>Open to freelance projects, production roles, and collaboration. Based in Edinburgh, returning to Boston in May 2026.</p>
+      <ul class="contact-links">
+        <li><a href="mailto:leorasoib@gmail.com">leorasoib@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/leorasoibelman" target="_blank">LinkedIn</a></li>
+        <li><a href="https://drive.google.com/file/d/1nofugEsJ89bEG71yun94gGYig-Htf6sn/view?usp=share_link" target="_blank">Download CV</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2026 Leora Soibelman</p>
+  <p><a href="mailto:leorasoib@gmail.com">leorasoib@gmail.com</a></p>
+</footer>
+
+<script>
+  function goTo(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+  function openLB(src) {
+    document.getElementById('lb-img').src = src;
+    document.getElementById('lightbox').classList.add('active');
+  }
+  function closeLB() {
+    document.getElementById('lightbox').classList.remove('active');
+  }
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLB(); });
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.gallery-img').forEach(img => {
+      img.addEventListener('click', () => openLB(img.src));
+    });
+  });
+</script>
+
+</body>
+</html>  .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; cursor: pointer; }
   .nav-links a:hover { color: var(--accent); }
 
