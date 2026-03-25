@@ -1,1 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Leora Soibelman</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+  :root {
+    --bg: #0e0e0e;
+    --surface: #181818;
+    --surface2: #222;
+    --text: #f2f0ee;
+    --muted: #999;
+    --accent: #a07de0;
+    --accent-dark: #7c5cbf;
+    --accent-light: #2a2040;
+    --border: #2a2a2a;
+    --sans: 'Georgia', serif;
+    --mono: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.25rem 3rem;
+    background: rgba(14,14,14,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+  }
+  .nav-name {
+    font-family: var(--mono);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    cursor: pointer;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 3rem 5rem;
+    max-width: 100%;
+    position: relative;
+    background: linear-gradient(to right, rgba(14,14,14,0.92) 50%, rgba(14,14,14,0.5) 100%), url('https://i.imgur.com/92XkGDu.jpeg') center/cover no-repeat;
+  }
+  #hero .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
+  .hero-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .hero-label::before {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .hero-name {
+    font-family: var(--mono);
+    font-size: clamp(3.5rem, 9vw, 7.5rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    color: var(--text);
+  }
+  .hero-name span { color: var(--accent); }
+  .hero-tagline {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 500px;
+    margin-bottom: 3rem;
+    line-height: 1.7;
+    border-left: 2px solid var(--accent);
+    padding-left: 1.25rem;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: background 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+  .btn:hover { background: var(--accent-dark); }
+  .btn-outline {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); background: transparent; }
+
+  /* SECTIONS */
+  .section-wrap { max-width: 1100px; margin: 0 auto; padding: 6rem 3rem; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .section-header-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .section-num {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--border);
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .about-aside h2 {
+    font-family: var(--mono);
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin-bottom: 1rem;
+  }
+  .about-aside .location {
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .about-body p { color: var(--muted); margin-bottom: 1.25rem; font-size: 0.95rem; }
+  .about-skills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
+  .tag {
+    padding: 0.35rem 0.9rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid var(--accent-dark);
+  }
+
+  /* EXPERIENCE */
+  .exp-item {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 2.5rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .exp-item:first-child { border-top: 1px solid var(--border); }
+  .exp-date { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.06em; padding-top: 0.25rem; }
+  .exp-role h3 { font-size: 1.05rem; font-weight: 800; letter-spacing: 0.01em; text-transform: uppercase; margin-bottom: 0.2rem; }
+  .exp-role .company { font-size: 0.85rem; color: var(--accent); margin-bottom: 0.75rem; letter-spacing: 0.04em; }
+  .exp-role p { font-size: 0.9rem; color: var(--muted); }
+
+  /* PROJECTS */
+  .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); }
+  .project-card {
+    background: var(--surface);
+    padding: 2.25rem;
+    transition: background 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .project-card:hover { background: var(--surface2); }
+  .project-cat {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.85rem;
+  }
+  .project-card h3 { font-size: 1.05rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.01em; margin-bottom: 0.6rem; }
+  .project-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+  .award-badge {
+    margin-top: 0.85rem;
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--accent-dark);
+    display: inline-block;
+  }
+  .project-arrow { margin-top: 1.5rem; font-size: 0.75rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+  .project-card:hover .project-arrow { color: var(--accent); }
+  .video-wrap { position: relative; width: 100%; padding-top: 56.25%; margin-bottom: 1.25rem; background: #000; }
+  .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .contact-aside h2 {
+    font-family: var(--mono);
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin-bottom: 1rem;
+  }
+  .contact-aside p { font-size: 0.9rem; color: var(--muted); margin-bottom: 1.5rem; }
+  .contact-links { list-style: none; }
+  .contact-links li { margin-bottom: 0.6rem; }
+  .contact-links a {
+    color: var(--muted);
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: color 0.2s;
+    letter-spacing: 0.03em;
+  }
+  .contact-links a:hover { color: var(--accent); }
+  .contact-form { display: flex; flex-direction: column; gap: 1.1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  label { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 0.4rem; }
+  input, textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+    border-radius: 0;
+    -webkit-appearance: none;
+  }
+  input:focus, textarea:focus { border-color: var(--accent); }
+  textarea { resize: vertical; min-height: 130px; }
+  .btn-submit {
+    padding: 0.85rem 2rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+    align-self: flex-start;
+  }
+  .btn-submit:hover { background: var(--accent-dark); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer p { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.04em; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+
+  @media (max-width: 700px) {
+    nav { padding: 1rem 1.5rem; }
+    .section-wrap { padding: 4rem 1.5rem; }
+    #hero { padding: 7rem 1.5rem 4rem; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.4rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-name">Leora Soibelman</a>
+  <ul class="nav-links">
+    <li><a onclick="goTo('about')">About</a></li>
+    <li><a onclick="goTo('experience')">Experience</a></li>
+    <li><a onclick="goTo('projects')">Work</a></li>
+    <li><a onclick="goTo('contact')">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+  <p class="hero-label">Sports Media &amp; Production</p>
+  <h1 class="hero-name">Leora<br><span>Soibelman</span></h1>
+  <p class="hero-tagline">Producer, editor, and storyteller. Bringing sports, culture, and community to life on screen.</p>
+  <div class="hero-btns">
+    <a onclick="goTo('projects')" class="btn">View My Work</a>
+    <a onclick="goTo('contact')" class="btn btn-outline">Get in Touch</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div style="border-top: 1px solid #2a2a2a;">
+  <div class="section-wrap" id="about">
+    <div class="section-header">
+      <span class="section-label">About</span>
+      <div class="section-header-line"></div>
+      <span class="section-num">01</span>
+    </div>
+    <div class="about-grid">
+      <div class="about-aside">
+        <h2>Filmmaker &amp; Media Producer</h2>
+        <p class="location" style="margin-top:0.75rem;">Edinburgh → Boston</p>
+      </div>
+      <div class="about-body">
+        <p>I'm a final-year student at the University of Edinburgh and an award-winning filmmaker with a passion for storytelling through post-production. My work spans feature-length documentary, client video, short-form content, and live sports production.</p>
+        <p>As President of Edinburgh University Television (EUTV), I led the station to a record 8 nominations and 6 wins at national awards events — including recognition from the Royal Television Society and NaSTA.</p>
+        <p>I'm especially drawn to the intersection of sport and media — how stories of competition, culture, and community come to life on screen. My live production experience includes a Production Runner role at the US Open with Van Wagner.</p>
+        <div class="about-skills">
+          <span class="tag">Post-production</span>
+          <span class="tag">Live sports production</span>
+          <span class="tag">Documentary</span>
+          <span class="tag">Client video</span>
+          <span class="tag">Short-form &amp; social</span>
+          <span class="tag">Photography</span>
+          <span class="tag">Spanish (working)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div style="border-top: 1px solid #2a2a2a;">
+  <div class="section-wrap" id="experience">
+    <div class="section-header">
+      <span class="section-label">Experience</span>
+      <div class="section-header-line"></div>
+      <span class="section-num">02</span>
+    </div>
+    <div>
+      <div class="exp-item">
+        <div class="exp-date">2024</div>
+        <div class="exp-role">
+          <h3>Production Runner</h3>
+          <div class="company">Van Wagner — US Open</div>
+          <p>On-the-ground production support for one of the world's largest tennis Grand Slams. Worked across live broadcast operations in a fast-paced, high-stakes environment.</p>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">2022 – 2025</div>
+        <div class="exp-role">
+          <h3>President &amp; Station Manager</h3>
+          <div class="company">Edinburgh University Television (EUTV)</div>
+          <p>Led the student television station across all departments — production, editorial, and awards strategy — resulting in a record 8 national nominations and 6 wins.</p>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">Ongoing</div>
+        <div class="exp-role">
+          <h3>Freelance Producer &amp; Editor</h3>
+          <div class="company">Independent</div>
+          <p>Client video, documentary, and digital content across sports, culture, and branded storytelling.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div style="border-top: 1px solid #2a2a2a;">
+  <div class="section-wrap" id="projects">
+    <div class="section-header">
+      <span class="section-label">Work</span>
+      <div class="section-header-line"></div>
+      <span class="section-num">03</span>
+    </div>
+    <div class="projects-grid">
+
+      <a href="https://leorasoibelman.myportfolio.com/narrative" target="_blank" class="project-card">
+        <div class="project-cat">Narrative &amp; Documentary</div>
+        <h3>TARASPOTTING</h3>
+        <p>A mockumentary following an Edinburgh student with an overbearing ego and a cast of misfit actors as she attempts to direct a film inspired by Trainspotting.</p>
+        <div class="award-badge">🏆 RTS Scotland 2025 &nbsp;·&nbsp; NaSTA Bronze 2024</div>
+        <div class="project-arrow">View &rarr;</div>
+      </a>
+
+      <a href="https://leorasoibelman.myportfolio.com/narrative" target="_blank" class="project-card">
+        <div class="project-cat">Narrative &amp; Documentary</div>
+        <h3>Medics' Reveal: The Naked Truth</h3>
+        <p>A documentary following Edinburgh Medical School students as they prepare for their annual variety show — held for the first time at the Usher Hall — with only weeks to rehearse.</p>
+        <div class="project-arrow">View &rarr;</div>
+      </a>
+
+      <a href="https://leorasoibelman.myportfolio.com/narrative" target="_blank" class="project-card">
+        <div class="project-cat">Narrative &amp; Documentary</div>
+        <h3>FLAGGED</h3>
+        <p>A two-part documentary on student integration at the University of Edinburgh — examining lived experience and the structural barriers behind it.</p>
+        <div class="project-arrow">View &rarr;</div>
+      </a>
+
+      <a href="https://leorasoibelman.myportfolio.com/clientwork" target="_blank" class="project-card">
+        <div class="project-cat">Client Work</div>
+        <h3>Cavell for Congress</h3>
+        <p>Produced the majority of video content for the Dave Cavell for Congress campaign, alongside social media graphics and broader communications strategy.</p>
+        <div class="project-arrow">View &rarr;</div>
+      </a>
+
+      <a href="https://leorasoibelman.myportfolio.com/clientwork" target="_blank" class="project-card">
+        <div class="project-cat">Client Work</div>
+        <h3>How to Citizen</h3>
+        <p>Editor and video producer for an award-winning podcast — shaping episodes into platform-specific cuts tailored for digital and social audiences.</p>
+        <div class="project-arrow">View &rarr;</div>
+      </a>
+
+      <a href="https://leorasoibelman.myportfolio.com/clientwork" target="_blank" class="project-card">
+        <div class="project-cat">Client Work</div>
+        <h3>Civics Unplugged — Commence 2030</h3>
+        <p>Produced all non-live content for a program featuring Dwayne Johnson and Andrew Yang, alongside a range of social-first digital edits.</p>
+        <div class="project-arrow">View &rarr;</div>
+      </a>
+
+      <div class="project-card" style="cursor:default;">
+        <div class="project-cat">Photography — Sports</div>
+        <h3>Sports Photography</h3>
+        <img src="https://i.imgur.com/92XkGDu.jpeg" alt="Sports photography" style="width:100%;margin:1rem 0;display:block;" />
+        <p>Still photography across live sporting events, capturing action and atmosphere on the ground.</p>
+        <a href="https://leorasoibelman.myportfolio.com/photography" target="_blank" class="project-arrow" style="display:inline-block;">View all &rarr;</a>
+      </div>
+
+      <a href="https://leorasoibelman.myportfolio.com/photography" target="_blank" class="project-card">
+        <div class="project-cat">Photography — Landscape</div>
+        <h3>Landscape Photography</h3>
+        <p>Landscape and travel photography shot across four years in the UK and beyond.</p>
+        <div class="project-arrow">View &rarr;</div>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div style="border-top: 1px solid #2a2a2a;">
+  <div class="section-wrap" id="contact">
+    <div class="section-header">
+      <span class="section-label">Contact</span>
+      <div class="section-header-line"></div>
+      <span class="section-num">04</span>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-aside">
+        <h2>Let's work together.</h2>
+        <p>Open to freelance projects, production roles, and collaboration. Based in Edinburgh — returning to Boston in May 2026.</p>
+        <ul class="contact-links">
+          <li><a href="mailto:leorasoib@gmail.com">leorasoib@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com/in/leorasoibelman" target="_blank">LinkedIn</a></li>
+          <li><a href="https://leorasoibelman.myportfolio.com" target="_blank">Full Portfolio</a></li>
+        </ul>
+      </div>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your name" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="your@email.com" required />
+          </div>
+        </div>
+        <div>
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" placeholder="What's this about?" />
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Tell me about your project..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="submit-btn">Send Message</button>
+        <p id="form-msg" style="font-size:0.85rem;color:var(--accent);display:none;">Thanks! I'll be in touch soon.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 Leora Soibelman</p>
+  <p><a href="mailto:leorasoib@gmail.com">leorasoib@gmail.com</a></p>
+</footer>
+
+<script>
+  function goTo(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submit-btn');
+    const msg = document.getElementById('form-msg');
+    btn.textContent = 'Sent!';
+    btn.disabled = true;
+    btn.style.opacity = '0.6';
+    msg.style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
