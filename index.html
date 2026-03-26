@@ -124,8 +124,12 @@ nav {
   box-shadow: 6px 6px 0 var(--accent);
   z-index: 2;
 }
-.hero-photos .card:hover {
-  transform: translate(-50%, -52%) rotate(0deg) scale(1.04) !important;
+.hero-photos .card:first-child:hover {
+  transform: translate(-75%, -52%) rotate(0deg) scale(1.04);
+  z-index: 3;
+}
+.hero-photos .card:last-child:hover {
+  transform: translate(-25%, -52%) rotate(0deg) scale(1.04);
   z-index: 3;
 }
 
