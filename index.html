@@ -3,312 +3,318 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Leora Soibelman 🎉</title>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Comic+Neue:wght@400;700&family=Boogaloo&display=swap" rel="stylesheet">
+<title>Leora Soibelman</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg: #fff9c4;
-    --pink: #ff4da6;
-    --blue: #3a86ff;
-    --green: #06d6a0;
-    --yellow: #ffbe0b;
-    --purple: #8338ec;
-    --red: #ff006e;
-    --text: #1a1a2e;
-    --heading: 'Fredoka One', cursive;
-    --body: 'Comic Neue', cursive;
-    --fun: 'Boogaloo', cursive;
+    --bg: #faf8f5;
+    --surface: #ffffff;
+    --text: #1c1917;
+    --muted: #78716c;
+    --accent: #7c5cbf;
+    --accent-light: #f3effe;
+    --accent-2: #5b3fa6;
+    --border: #e7e4df;
+    --heading: 'DM Serif Display', serif;
+    --body: 'DM Sans', sans-serif;
   }
 
-  @keyframes wiggle { 0%,100%{transform:rotate(-2deg)} 50%{transform:rotate(2deg)} }
-  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-  @keyframes float { 0%,100%{transform:translateY(0) rotate(-1deg)} 50%{transform:translateY(-12px) rotate(1deg)} }
+  @keyframes nudge { 0%,100%{transform:translateX(0)} 50%{transform:translateX(3px)} }
+  @keyframes soft-bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
 
   html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    background-image: radial-gradient(circle, #ffbe0b33 1px, transparent 1px);
-    background-size: 28px 28px;
-    color: var(--text);
-    font-family: var(--body);
-    font-size: 16px;
-    line-height: 1.7;
-  }
+  body { background: var(--bg); color: var(--text); font-family: var(--body); font-size: 16px; line-height: 1.7; }
 
   /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0;
     display: flex; justify-content: space-between; align-items: center;
     flex-wrap: wrap; gap: 0.5rem;
-    padding: 0.9rem 2rem;
-    background: var(--pink);
-    border-bottom: 4px dashed var(--yellow);
+    padding: 1.1rem clamp(1.25rem, 5vw, 3rem);
+    background: rgba(250,248,245,0.94);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
     z-index: 100;
-    box-shadow: 0 4px 0 var(--purple);
   }
   .nav-name {
     font-family: var(--heading);
-    font-size: clamp(1rem, 4vw, 1.3rem);
-    color: #fff;
+    font-size: clamp(1rem, 3vw, 1.15rem);
+    color: var(--text);
     text-decoration: none;
-    text-shadow: 3px 3px 0 var(--purple);
-    animation: wiggle 3s ease-in-out infinite;
-    display: inline-block;
-    white-space: nowrap;
+    letter-spacing: 0.01em;
   }
-  .nav-name::after { content: ' 🎬'; }
-  .nav-links { display: flex; gap: 0.6rem; list-style: none; flex-wrap: wrap; }
+  .nav-name em { color: var(--accent); font-style: italic; }
+  .nav-links { display: flex; gap: 0.5rem; list-style: none; flex-wrap: wrap; }
   .nav-links a {
-    font-family: var(--fun);
-    font-size: clamp(0.75rem, 2.5vw, 1rem);
-    color: #fff;
+    font-size: clamp(0.78rem, 2vw, 0.85rem);
+    font-weight: 500;
+    color: var(--muted);
     text-decoration: none;
-    padding: 0.25rem 0.75rem;
-    border: 2px solid #fff;
+    padding: 0.3rem 0.85rem;
     border-radius: 999px;
     cursor: pointer;
-    transition: all 0.15s;
-    display: inline-block;
+    transition: all 0.18s;
     white-space: nowrap;
   }
-  .nav-links a:hover { background:#fff; color:var(--pink); transform:scale(1.1) rotate(-3deg); }
+  .nav-links a:hover { color: var(--accent); background: var(--accent-light); }
 
   /* HERO */
   #hero {
     min-height: 100vh;
     display: flex; flex-direction: column; justify-content: center;
-    padding: clamp(5rem, 12vw, 8rem) clamp(1.25rem, 5vw, 3rem) 4rem;
-    background: linear-gradient(135deg, #ffe0f0 0%, #e0f0ff 40%, #e0ffe8 80%, #fff9c4 100%);
+    padding: clamp(5.5rem,12vw,8rem) clamp(1.25rem,5vw,3rem) 4rem;
+    background: linear-gradient(160deg, #fff8f5 0%, #faf8f5 60%);
+    border-bottom: 1px solid var(--border);
     position: relative; overflow: hidden;
   }
-  #hero::before {
-    content: '⚽ 🎾 🏀 🎬 🏆 📸 🏈 ⚾';
-    position: absolute; top: 5.5rem; right: 1.5rem;
-    font-size: clamp(1.2rem, 3vw, 2rem);
-    line-height: 2.2; opacity: 0.3;
-    writing-mode: vertical-rl;
-    animation: float 4s ease-in-out infinite;
-    pointer-events: none;
+  /* subtle grid texture */
+  #hero::after {
+    content:'';
+    position:absolute; inset:0;
+    background-image: linear-gradient(var(--border) 1px,transparent 1px), linear-gradient(90deg,var(--border) 1px,transparent 1px);
+    background-size: 48px 48px;
+    opacity: 0.35;
+    pointer-events:none;
   }
-  .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
+  .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; position: relative; z-index: 1; display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 3rem; }
+  .hero-text { flex: 1 1 0; min-width: 0; }
+  .hero-photo-wrap {
+    flex: 0 0 auto; width: clamp(180px, 24vw, 320px);
+    transform: rotate(2deg);
+    box-shadow: 8px 8px 0 var(--accent), 12px 12px 0 var(--border);
+    border-radius: 0.5rem; overflow: hidden;
+    border: 3px solid var(--accent);
+    transition: transform 0.3s;
+    align-self: center;
+  }
+  .hero-photo-wrap:hover { transform: rotate(0deg) scale(1.02); }
+  .hero-photo-wrap img { width: 100%; display: block; object-fit: cover; aspect-ratio: 3/4; }
   .hero-label {
-    font-family: var(--fun);
-    font-size: clamp(0.85rem, 2.5vw, 1rem);
-    color: var(--purple);
-    background: #f0e6ff;
-    display: inline-block;
-    padding: 0.3rem 1.2rem;
-    border: 2px solid var(--purple);
-    border-radius: 999px;
-    margin-bottom: 1.25rem;
-    transform: rotate(-1.5deg);
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
   }
+  .hero-label::before { content:''; display:inline-block; width:24px; height:2px; background:var(--accent); }
   .hero-name {
     font-family: var(--heading);
-    font-size: clamp(2.8rem, 10vw, 6.5rem);
+    font-size: clamp(3rem, 9vw, 6rem);
     line-height: 1.05;
-    margin-bottom: 1.25rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.75rem;
     color: var(--text);
-    text-shadow: 4px 4px 0 var(--pink), 8px 8px 0 var(--blue);
   }
-  .hero-name span { color: var(--purple); display:inline-block; animation: wiggle 2s ease-in-out infinite; }
+  .hero-name em { color: var(--accent); font-style: italic; }
   .hero-tagline {
-    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-    color: #444;
-    max-width: 480px;
-    margin-bottom: 2rem;
-    background: #fff;
-    padding: 1rem 1.25rem;
-    border: 3px solid var(--yellow);
-    border-radius: 1rem 1rem 1rem 0;
-    box-shadow: 5px 5px 0 var(--yellow);
-    position: relative;
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
+    color: var(--muted);
+    max-width: 460px;
+    margin-bottom: 2.5rem;
+    line-height: 1.75;
   }
-  .hero-tagline::before { content: '💬'; position:absolute; top:-1.1rem; left:1rem; font-size:1.4rem; }
-  .hero-btns { display:flex; gap:0.75rem; flex-wrap:wrap; }
+  .hero-sport-strip {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+  .sport-pill {
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    font-size: 0.8rem; font-weight: 500;
+    padding: 0.3rem 0.9rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--muted);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 
   .btn {
-    font-family: var(--heading);
-    font-size: clamp(0.85rem, 2.5vw, 1rem);
-    padding: 0.75rem clamp(1.25rem, 4vw, 2rem);
-    background: var(--pink);
-    color: #fff;
-    border: 3px solid var(--text);
-    border-radius: 999px;
-    cursor: pointer;
-    text-decoration: none;
-    box-shadow: 4px 4px 0 var(--text);
-    transition: all 0.15s;
+    font-family: var(--body); font-size: 0.875rem; font-weight: 600;
+    padding: 0.8rem clamp(1.25rem, 4vw, 1.75rem);
+    background: var(--accent); color: #fff;
+    border: none; border-radius: 999px;
+    cursor: pointer; text-decoration: none;
     display: inline-block;
+    transition: all 0.18s;
+    box-shadow: 0 2px 8px rgba(232,93,47,0.25);
   }
-  .btn:hover { transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--text); }
-  .btn:active { transform:translate(2px,2px); box-shadow:2px 2px 0 var(--text); }
-  .btn-outline { background:#fff; color:var(--text); }
-  .btn-outline:hover { background:var(--yellow); }
+  .btn:hover { background: #d44e24; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(232,93,47,0.3); }
+  .btn-outline {
+    background: transparent; color: var(--text);
+    border: 1.5px solid var(--border);
+    box-shadow: none;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); transform: translateY(-1px); }
 
   /* SECTIONS */
-  .section-wrap { max-width: 1100px; margin: 0 auto; padding: clamp(3rem, 8vw, 5.5rem) clamp(1.25rem, 5vw, 3rem); }
-  .section-header { display:flex; align-items:center; gap:1rem; margin-bottom:2.5rem; flex-wrap:wrap; }
+  .section-wrap { max-width: 1100px; margin: 0 auto; padding: clamp(3.5rem,8vw,5.5rem) clamp(1.25rem,5vw,3rem); }
+  .section-header { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 3rem; }
   .section-label {
-    font-family: var(--heading);
-    font-size: clamp(1rem, 3vw, 1.4rem);
-    color: #fff;
-    background: var(--blue);
-    padding: 0.2rem 1rem;
-    border: 3px solid var(--text);
-    border-radius: 0.5rem;
-    box-shadow: 3px 3px 0 var(--text);
-    transform: rotate(-1deg);
-    display: inline-block;
-    white-space: nowrap;
+    font-family: var(--heading); font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    color: var(--text); white-space: nowrap;
   }
-  .section-header-line { flex:1; min-width:2rem; height:3px; background:repeating-linear-gradient(90deg,var(--pink) 0,var(--pink) 8px,transparent 8px,transparent 16px); }
-  .section-num { font-family:var(--heading); font-size:clamp(1.4rem, 4vw, 2rem); color:var(--yellow); text-shadow:2px 2px 0 var(--text); }
-  .sep { border:none; border-top:4px dashed var(--pink); margin:0; opacity:0.35; }
+  .section-label span { color: var(--accent); }
+  .section-header-line { flex: 1; height: 1px; background: var(--border); }
+  .section-num { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; color: var(--muted); }
+  .sep { border: none; border-top: 1px solid var(--border); }
 
   /* ABOUT */
-  .about-grid { display:grid; grid-template-columns:1fr 1.6fr; gap:4rem; align-items:start; }
-  .about-aside h2 { font-family:var(--heading); font-size:clamp(1.3rem, 4vw, 1.8rem); color:var(--purple); text-shadow:3px 3px 0 #e0d0ff; margin-bottom:0.75rem; }
-  .about-aside .location { font-family:var(--fun); font-size:1rem; color:var(--pink); }
-  .about-aside .location::before { content:'📍 '; }
-  .about-body p { color:#444; margin-bottom:1rem; font-size:0.97rem; }
-  .about-skills { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1.5rem; }
-  .tag {
-    font-family:var(--fun); padding:0.35rem 1rem;
-    background:#fff; font-size:0.88rem;
-    border:2px solid var(--text); border-radius:999px;
-    box-shadow:2px 2px 0 var(--text);
-    transition:transform 0.15s; cursor:default;
+  .about-grid { display: grid; grid-template-columns: 1fr 1.65fr; gap: 5rem; align-items: start; }
+  .about-aside h2 {
+    font-family: var(--heading); font-size: clamp(1.4rem,4vw,1.9rem);
+    line-height: 1.15; margin-bottom: 0.6rem; color: var(--text);
   }
-  .tag:hover { transform:rotate(-3deg) scale(1.05); background:var(--yellow); }
-  .tag:nth-child(2n){background:#ffe0f0} .tag:nth-child(3n){background:#e0ffe8} .tag:nth-child(4n){background:#e0f0ff}
+  .about-aside .location { font-size: 0.85rem; color: var(--muted); }
+  .about-aside .location::before { content: '↗ '; color: var(--accent); font-style: normal; }
+  .about-body p { color: var(--muted); margin-bottom: 1.1rem; font-size: 0.95rem; }
+  .about-body p strong { color: var(--text); font-weight: 600; }
+  .about-skills { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1.75rem; }
+  .tag {
+    padding: 0.3rem 0.9rem;
+    background: var(--surface);
+    font-size: 0.8rem; font-weight: 500;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text);
+    transition: all 0.15s;
+    cursor: default;
+  }
+  .tag:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
 
   /* EXPERIENCE */
-  .exp-list { display:flex; flex-direction:column; gap:1rem; }
+  .exp-list { display: flex; flex-direction: column; }
   .exp-item {
-    display:grid; grid-template-columns:minmax(100px,160px) 1fr; gap:1.5rem;
-    padding:1.75rem;
-    border:3px solid var(--text); border-radius:1rem;
-    background:#fff; box-shadow:5px 5px 0 var(--text);
-    transition:transform 0.15s;
+    display: grid; grid-template-columns: minmax(110px,160px) 1fr;
+    gap: 2rem; padding: 2.25rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
   }
-  .exp-item:hover { transform:translate(-3px,-3px); box-shadow:8px 8px 0 var(--text); }
-  .exp-item:nth-child(1){background:#fff0fa;border-color:var(--pink);box-shadow:5px 5px 0 var(--pink)}
-  .exp-item:nth-child(2){background:#f0f5ff;border-color:var(--blue);box-shadow:5px 5px 0 var(--blue)}
-  .exp-item:nth-child(3){background:#f0fff8;border-color:var(--green);box-shadow:5px 5px 0 var(--green)}
-  .exp-date { font-family:var(--fun); font-size:0.88rem; color:#666; padding-top:0.2rem; line-height:1.4; }
-  .exp-role h3 { font-family:var(--heading); font-size:clamp(0.95rem, 2.5vw, 1.1rem); margin-bottom:0.15rem; }
-  .exp-role .company { font-family:var(--fun); font-size:0.95rem; color:var(--purple); margin-bottom:0.5rem; }
-  .exp-role p { font-size:0.9rem; color:#555; }
+  .exp-item:first-child { border-top: 1px solid var(--border); }
+  .exp-date { font-size: 0.8rem; color: var(--muted); padding-top: 0.2rem; line-height: 1.5; }
+  .exp-role h3 { font-family: var(--heading); font-size: clamp(1rem,2.5vw,1.1rem); margin-bottom: 0.2rem; }
+  .exp-role .company { font-size: 0.875rem; color: var(--accent); font-weight: 500; margin-bottom: 0.65rem; }
+  .exp-role p { font-size: 0.9rem; color: var(--muted); }
 
   /* PROJECTS */
-  .projects-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem; }
+  .projects-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
   .project-card {
-    background:#fff; border:3px solid var(--text); border-radius:1.2rem;
-    padding:1.75rem; box-shadow:5px 5px 0 var(--text);
-    transition:transform 0.15s; display:block; color:inherit;
+    background: var(--surface); padding: 2rem;
+    transition: background 0.18s;
+    display: block; color: inherit; text-decoration: none;
   }
-  .project-card:hover { transform:translate(-3px,-3px) rotate(-0.5deg); box-shadow:8px 8px 0 var(--text); }
-  .project-card:nth-child(2n){background:#fff0fa} .project-card:nth-child(3n){background:#f0fff8} .project-card:nth-child(4n){background:#f0f5ff}
-  .project-cat { font-family:var(--fun); font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--pink); margin-bottom:0.5rem; }
-  .project-card h3 { font-family:var(--heading); font-size:clamp(0.95rem, 2.5vw, 1.05rem); margin-bottom:0.5rem; }
-  .project-card p { font-size:0.875rem; color:#555; line-height:1.6; }
+  .project-card:hover { background: var(--accent-light); }
+  .project-cat { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+  .project-card h3 { font-family: var(--heading); font-size: clamp(0.95rem,2.5vw,1.05rem); margin-bottom: 0.5rem; line-height: 1.3; }
+  .project-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
   .award-badge {
-    margin-top:0.75rem; font-family:var(--fun); font-size:0.8rem;
-    color:var(--text); background:var(--yellow);
-    padding:0.3rem 0.8rem; border:2px solid var(--text); border-radius:999px;
-    display:inline-block; box-shadow:2px 2px 0 var(--text);
-    animation:bounce 2s ease-in-out infinite;
+    margin-top: 0.75rem; font-size: 0.75rem; font-weight: 600;
+    color: var(--accent); padding: 0.25rem 0.75rem;
+    border: 1px solid var(--accent);
+    border-radius: 999px; display: inline-block;
+    animation: soft-bounce 3s ease-in-out infinite;
   }
-  .video-wrap { position:relative; width:100%; padding-top:56.25%; margin-bottom:1rem; background:#000; border-radius:0.5rem; overflow:hidden; }
+  .video-wrap { position:relative; width:100%; padding-top:56.25%; margin-bottom:1rem; background:#000; border-radius:0.35rem; overflow:hidden; }
   .video-wrap iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:none; }
 
   /* CONTACT */
-  .contact-aside h2 { font-family:var(--heading); font-size:clamp(1.6rem, 5vw, 2.2rem); color:var(--purple); text-shadow:4px 4px 0 #e0d0ff; margin-bottom:0.75rem; }
-  .contact-aside p { font-size:0.95rem; color:#555; margin-bottom:1.5rem; }
-  .contact-links { list-style:none; display:flex; flex-direction:column; gap:0.5rem; align-items:flex-start; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .contact-aside h2 { font-family: var(--heading); font-size: clamp(1.6rem,5vw,2.2rem); margin-bottom: 0.75rem; line-height:1.15; }
+  .contact-aside h2 em { color: var(--accent); font-style: italic; }
+  .contact-aside p { font-size: 0.95rem; color: var(--muted); margin-bottom: 1.5rem; line-height: 1.7; }
+  .contact-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
   .contact-links a {
-    font-family:var(--fun); font-size:1.05rem; color:var(--text); text-decoration:none;
-    background:#fff; padding:0.4rem 1.2rem; border:2px solid var(--text);
-    border-radius:999px; box-shadow:3px 3px 0 var(--text);
-    display:inline-block; transition:all 0.15s;
+    font-size: 0.9rem; font-weight: 500;
+    color: var(--text); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    transition: color 0.18s;
   }
-  .contact-links a:hover { background:var(--pink); color:#fff; transform:translate(-2px,-2px) rotate(-2deg); }
+  .contact-links a:hover { color: var(--accent); }
+  .contact-links a::after { content: '↗'; font-size: 0.75rem; color: var(--accent); opacity: 0; transition: opacity 0.15s; }
+  .contact-links a:hover::after { opacity: 1; }
+  .contact-note {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 0.75rem; padding: 1.5rem;
+    font-size: 0.9rem; color: var(--muted); line-height: 1.65;
+  }
+  .contact-note strong { color: var(--text); }
 
   footer {
-    background:var(--purple); border-top:4px solid var(--text);
-    padding:1.5rem clamp(1.25rem, 5vw, 3rem);
-    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;
-    box-shadow:0 -4px 0 var(--pink);
+    border-top: 1px solid var(--border);
+    padding: 1.75rem clamp(1.25rem,5vw,3rem);
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;
+    background: var(--bg);
   }
-  footer p { font-family:var(--fun); font-size:0.95rem; color:#fff; }
-  footer a { color:var(--yellow); text-decoration:none; }
-  footer a:hover { text-decoration:underline; }
+  footer p { font-size: 0.8rem; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
+  footer a:hover { color: var(--accent); }
 
   /* LIGHTBOX */
   .lb-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.88); z-index:999; align-items:center; justify-content:center; cursor:zoom-out; }
   .lb-overlay.active { display:flex; }
-  .lb-overlay img { max-width:90vw; max-height:90vh; object-fit:contain; border:5px solid var(--yellow); border-radius:1rem; }
-  .lb-close { position:fixed; top:1rem; right:1rem; color:#fff; font-size:1.8rem; cursor:pointer; background:var(--pink); border:3px solid #fff; border-radius:50%; width:2.5rem; height:2.5rem; display:flex; align-items:center; justify-content:center; line-height:1; }
-  .gallery-img { cursor:zoom-in; transition:all 0.2s; border-radius:0.5rem; }
-  .gallery-img:hover { opacity:0.8; transform:scale(1.05) rotate(1deg); }
+  .lb-overlay img { max-width:90vw; max-height:90vh; object-fit:contain; border-radius:0.5rem; }
+  .lb-close { position:fixed; top:1.25rem; right:1.25rem; color:#fff; font-size:1.5rem; cursor:pointer; background:rgba(255,255,255,0.15); border:none; border-radius:50%; width:2.25rem; height:2.25rem; display:flex; align-items:center; justify-content:center; transition:background 0.15s; }
+  .lb-close:hover { background:rgba(255,255,255,0.25); }
+  .gallery-img { cursor:zoom-in; transition:opacity 0.2s; border-radius:0.25rem; }
+  .gallery-img:hover { opacity:0.8; }
 
-  /* ── MOBILE ── */
+  /* RESPONSIVE */
   @media (max-width: 600px) {
-    nav { padding:0.75rem 1rem; }
-    .nav-links { gap:0.4rem; }
-    .nav-links a { padding:0.2rem 0.6rem; font-size:0.72rem; }
-
-    #hero::before { display:none; }
-
-    .about-grid { grid-template-columns:1fr; gap:1.75rem; }
-
-    .exp-item { grid-template-columns:1fr; gap:0.25rem; }
-    .exp-date { font-size:0.82rem; }
-
-    .projects-grid { grid-template-columns:1fr; }
-
-    .contact-links { align-items:stretch; }
-    .contact-links a { text-align:center; }
-
-    footer { flex-direction:column; text-align:center; }
+    nav { padding: 0.85rem 1rem; }
+    .nav-links a { padding: 0.25rem 0.6rem; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.2rem; padding: 1.5rem 0; }
+    .projects-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; }
+    #hero::after { display: none; }
+    .hero-inner { flex-direction: column-reverse; align-items: flex-start; gap: 2rem; }
+    .hero-photo-wrap { width: 50%; max-width: 180px; align-self: flex-start; transform: rotate(1.5deg); }
   }
-
-  /* ── TABLET ── */
   @media (min-width: 601px) and (max-width: 900px) {
-    .about-grid { grid-template-columns:1fr; gap:2rem; }
-    .projects-grid { grid-template-columns:1fr; }
-    .exp-item { grid-template-columns:120px 1fr; gap:1rem; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 110px 1fr; gap: 1.25rem; }
   }
 </style>
 </head>
 <body>
 
 <div class="lb-overlay" id="lightbox" onclick="closeLB()">
-  <span class="lb-close">&times;</span>
+  <button class="lb-close" onclick="closeLB()">&times;</button>
   <img id="lb-img" src="" alt="" />
 </div>
 
 <nav>
-  <a href="#" class="nav-name">Leora Soibelman</a>
+  <a href="#" class="nav-name">Leora <em>Soibelman</em></a>
   <ul class="nav-links">
-    <li><a onclick="goTo('about')">About 🙋</a></li>
-    <li><a onclick="goTo('experience')">Exp ⚽</a></li>
-    <li><a onclick="goTo('projects')">Work 🎬</a></li>
-    <li><a onclick="goTo('contact')">Contact 💌</a></li>
+    <li><a onclick="goTo('about')">About</a></li>
+    <li><a onclick="goTo('experience')">Experience</a></li>
+    <li><a onclick="goTo('projects')">Work</a></li>
+    <li><a onclick="goTo('contact')">Contact</a></li>
   </ul>
 </nav>
 
 <section id="hero">
   <div class="hero-inner">
-    <p class="hero-label">Sports Media, Production &amp; Editing 🎾 🏆 📽️ ⚽ 🏀</p>
-    <h1 class="hero-name">Leora<br><span>Soibelman</span></h1>
-    <p class="hero-tagline">Producer, editor, and storyteller. Bringing sports, culture, and community to life on screen. 🎥</p>
+    <div class="hero-text">
+    <p class="hero-label">Sports Media · Production · Editing</p>
+    <h1 class="hero-name">Leora<br><em>Soibelman</em></h1>
+    <p class="hero-tagline">Producer, editor, and storyteller. Bringing sports, culture, and community to life on screen.</p>
+    <div class="hero-sport-strip">
+      <span class="sport-pill">🏟️ Live Events</span>
+      <span class="sport-pill">🏆 Award-winning</span>
+      <span class="sport-pill">📡 Broadcast</span>
+      <span class="sport-pill">✂️ Post-production</span>
+      <span class="sport-pill">🌐 Multilingual</span>
+    </div>
     <div class="hero-btns">
-      <a onclick="goTo('projects')" class="btn">View My Work 👀</a>
-      <a onclick="goTo('contact')" class="btn btn-outline">Get in Touch 👋</a>
+      <a onclick="goTo('projects')" class="btn">View My Work</a>
+      <a onclick="goTo('contact')" class="btn btn-outline">Get in Touch</a>
+    </div>
+    <div class="hero-photo-wrap">
+      <img src="images/hero.jpeg" alt="Leora Soibelman" />
     </div>
   </div>
 </section>
@@ -317,28 +323,28 @@
 <div>
   <div class="section-wrap" id="about">
     <div class="section-header">
-      <span class="section-label">🙋 About</span>
+      <span class="section-label">About <span>//</span></span>
       <div class="section-header-line"></div>
       <span class="section-num">01</span>
     </div>
     <div class="about-grid">
       <div class="about-aside">
-        <h2>Sports Media Producer &amp; Editor 🎥</h2>
-        <p class="location" style="margin-top:0.75rem;">Edinburgh / Boston</p>
+        <h2>Sports Media Producer &amp; Editor</h2>
+        <p class="location" style="margin-top:0.75rem;">Edinburgh → Boston</p>
       </div>
       <div class="about-body">
-        <p>I'm a final-year student at the University of Edinburgh and an award-winning filmmaker with a passion for storytelling through post-production. My work spans feature-length documentary, client video, short-form content, and live sports production. 🏟️</p>
-        <p>As President of Edinburgh University Television (EUTV), I led the station to a record 8 nominations and 6 wins at national awards events, including recognition from the Royal Television Society and NaSTA. 🏆🏆🏆🏆🏆🏆</p>
-        <p>I'm especially drawn to the intersection of sport and media — how stories of competition, culture, and community come to life on screen. My live production experience includes a Production Runner role at the US Open with Van Wagner. 🎾🎾</p>
+        <p>I'm a final-year student at the University of Edinburgh and an award-winning filmmaker with a passion for storytelling through post-production. My work spans feature-length documentary, client video, short-form content, and live sports production.</p>
+        <p>As President of <strong>Edinburgh University Television (EUTV)</strong>, I led the station to a record <strong>8 nominations and 6 wins</strong> at national awards events, including recognition from the Royal Television Society and NaSTA.</p>
+        <p>I'm especially drawn to the intersection of sport and media — how stories of competition, culture, and community come to life on screen. My live production experience includes a Production Runner role at the <strong>US Open 🎾</strong> with Van Wagner.</p>
         <div class="about-skills">
-          <span class="tag">🎞️ Premiere Pro</span>
-          <span class="tag">🎬 Avid Media Composer</span>
-          <span class="tag">✨ After Effects</span>
-          <span class="tag">🏟️ Live event production</span>
-          <span class="tag">📡 Broadcast operations</span>
-          <span class="tag">📱 Social-first editing</span>
-          <span class="tag">🎥 Field production</span>
-          <span class="tag">🇪🇸 Spanish</span>
+          <span class="tag">Premiere Pro</span>
+          <span class="tag">Avid Media Composer</span>
+          <span class="tag">After Effects</span>
+          <span class="tag">Live event production</span>
+          <span class="tag">Broadcast operations</span>
+          <span class="tag">Social-first editing</span>
+          <span class="tag">Field production</span>
+          <span class="tag">Spanish (working proficiency)</span>
         </div>
       </div>
     </div>
@@ -349,38 +355,38 @@
 <div>
   <div class="section-wrap" id="experience">
     <div class="section-header">
-      <span class="section-label">⚽ Experience</span>
+      <span class="section-label">Experience <span>//</span></span>
       <div class="section-header-line"></div>
       <span class="section-num">02</span>
     </div>
     <div class="exp-list">
       <div class="exp-item">
-        <div class="exp-date">Aug – Sep 2025<br>🎾 NYC</div>
+        <div class="exp-date">Aug – Sep 2025<br>NYC 🎾</div>
         <div class="exp-role">
           <h3>Production Runner / Assistant</h3>
           <div class="company">Van Wagner / USTA US Open</div>
-          <p>Supported live, in-venue production at one of the world's premier tennis events 🎾, contributing to seamless fan-facing entertainment on a show court. Stepped into replay operations when a colleague was unexpectedly out sick, ensuring uninterrupted playback and timing during live matches.</p>
+          <p>Supported live, in-venue production at one of the world's premier tennis events, contributing to seamless fan-facing entertainment on a show court. Stepped into replay operations responsibilities when a colleague was unexpectedly out sick, ensuring uninterrupted playback and timing during live matches.</p>
         </div>
       </div>
       <div class="exp-item">
-        <div class="exp-date">Mar 2024 – Mar 2025<br>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Edinburgh</div>
+        <div class="exp-date">Mar 2024 – Mar 2025<br>Edinburgh 🏴󠁧󠁢󠁳󠁣󠁴󠁿</div>
         <div class="exp-role">
           <h3>President / Station Manager</h3>
           <div class="company">Edinburgh University Television (EUTV)</div>
-          <p>Led and grew the university's student television station, overseeing all production workflows and creative output. Drove EUTV to record success 🏆, earning 8 national nominations and 6 wins across major student television awards.</p>
+          <p>Led and grew the university's student television station, overseeing all production workflows and creative output. Drove EUTV to record success — 8 national nominations and 6 wins across major student television awards 🏆. Designed and implemented production systems, workshops, and editorial standards that raised output quality and consistency.</p>
         </div>
       </div>
       <div class="exp-item">
-        <div class="exp-date">Ongoing 🚀</div>
+        <div class="exp-date">Ongoing</div>
         <div class="exp-role">
           <h3>Freelance Producer &amp; Editor</h3>
           <div class="company">Independent</div>
-          <p>Client video, documentary, and digital content across sports ⚽🏀🎾, culture, and branded storytelling.</p>
+          <p>Client video, documentary, and digital content across sports ⚽🎾, culture, and branded storytelling.</p>
         </div>
       </div>
     </div>
-    <div style="margin-top:2rem;">
-      <a href="https://drive.google.com/file/d/1nofugEsJ89bEG71yun94gGYig-Htf6sn/view?usp=share_link" target="_blank" class="btn btn-outline">View Full CV 📄 →</a>
+    <div style="margin-top:2.25rem;">
+      <a href="https://drive.google.com/file/d/1nofugEsJ89bEG71yun94gGYig-Htf6sn/view?usp=share_link" target="_blank" class="btn btn-outline">View Full CV →</a>
     </div>
   </div>
 </div>
@@ -389,23 +395,23 @@
 <div>
   <div class="section-wrap" id="projects">
     <div class="section-header">
-      <span class="section-label">🎬 Work</span>
+      <span class="section-label">Work <span>//</span></span>
       <div class="section-header-line"></div>
       <span class="section-num">03</span>
     </div>
     <div class="projects-grid">
 
-      <div class="project-card" style="grid-column:1/-1; background:linear-gradient(135deg,#ffe0f0,#e0f0ff); border-color:var(--pink); box-shadow:6px 6px 0 var(--pink);">
-        <div class="project-cat">⭐ Featured Work</div>
-        <h3>University of Edinburgh Sports Union — International Women's Day 💪⚽🏃‍♀️</h3>
+      <div class="project-card" style="grid-column:1/-1; background:var(--accent-light); border-bottom:2px solid var(--accent);">
+        <div class="project-cat">⭐ Featured</div>
+        <h3>University of Edinburgh Sports Union — International Women's Day 💪⚽</h3>
         <div class="video-wrap" style="margin:1rem 0;">
           <iframe src="https://www.youtube.com/embed/mvjqtEFTc0M" allowfullscreen></iframe>
         </div>
-        <p>A short produced for the University of Edinburgh Sports Union to mark International Women's Day. 🏆</p>
+        <p>A short produced for the University of Edinburgh Sports Union to mark International Women's Day.</p>
       </div>
 
       <div class="project-card">
-        <div class="project-cat">🎭 Narrative &amp; Documentary</div>
+        <div class="project-cat">Narrative &amp; Documentary</div>
         <h3>TARASPOTTING</h3>
         <div class="video-wrap">
           <iframe src="https://www.youtube.com/embed/ynhiHpwuA4I" allowfullscreen></iframe>
@@ -415,16 +421,16 @@
       </div>
 
       <div class="project-card">
-        <div class="project-cat">🎭 Narrative &amp; Documentary</div>
+        <div class="project-cat">Narrative &amp; Documentary</div>
         <h3>Shapes of Days</h3>
         <div class="video-wrap">
           <iframe src="https://www.youtube.com/embed/Babdx26SjiU" allowfullscreen></iframe>
         </div>
-        <p>The short focuses on Ryan, a quiet, introspective student in a state of emotional and existential drift. Although cared for by those around him, he often observes more than participates, internalising his struggles outside of fleeting moments of openness.</p>
+        <p>The short focuses on Ryan, a quiet, introspective student in a state of emotional and existential drift. Although cared for by those around him, he often observes more than participates.</p>
       </div>
 
       <div class="project-card">
-        <div class="project-cat">🎭 Narrative &amp; Documentary</div>
+        <div class="project-cat">Narrative &amp; Documentary</div>
         <h3>FLAGGED</h3>
         <div class="video-wrap">
           <iframe src="https://www.youtube.com/embed/etzh6KZOzlY" allowfullscreen></iframe>
@@ -433,7 +439,7 @@
       </div>
 
       <div class="project-card">
-        <div class="project-cat">💼 Client Work &amp; Social</div>
+        <div class="project-cat">Client Work &amp; Social</div>
         <h3>Medics Reveal Promo</h3>
         <div class="video-wrap">
           <iframe src="https://www.youtube.com/embed/SJnMXIPeoEc" allowfullscreen></iframe>
@@ -442,7 +448,7 @@
       </div>
 
       <div class="project-card">
-        <div class="project-cat">💼 Client Work</div>
+        <div class="project-cat">Client Work</div>
         <h3>Cavell for Congress</h3>
         <div class="video-wrap">
           <iframe src="https://www.youtube.com/embed/videoseries?list=PLFJXr-o-H0SEIljAUgJ6YQqlXrkiVCLIo" allowfullscreen></iframe>
@@ -451,7 +457,7 @@
       </div>
 
       <div class="project-card">
-        <div class="project-cat">💼 Client Work</div>
+        <div class="project-cat">Client Work</div>
         <h3>How to Citizen</h3>
         <div class="video-wrap">
           <iframe src="https://www.youtube.com/embed/videoseries?list=PLFJXr-o-H0SH7i_MYg70GyR4T_lhar2Cp" allowfullscreen></iframe>
@@ -460,9 +466,9 @@
       </div>
 
       <div class="project-card" style="grid-column:1/-1;">
-        <div class="project-cat">📸 Photography — Sports 🏃‍♀️⚽🎾🏀</div>
+        <div class="project-cat">Photography — Sports 🏃‍♀️⚽🎾</div>
         <h3>Sports Photography</h3>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:6px;margin:1rem 0;">
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:4px;margin:1rem 0;">
           <img src="images/sports1.jpg" alt="Sports" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
           <img src="images/sports2.jpg" alt="Sports" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
           <img src="images/sports3.jpg" alt="Sports" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
@@ -472,13 +478,13 @@
           <img src="images/sports7.jpg" alt="Sports" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
           <img src="images/sports8.jpg" alt="Sports" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
         </div>
-        <p>Still photography across live sporting events, capturing action and atmosphere on the ground. 🏟️</p>
+        <p>Still photography across live sporting events, capturing action and atmosphere on the ground.</p>
       </div>
 
       <div class="project-card" style="grid-column:1/-1;">
-        <div class="project-cat">🌄 Photography — Landscape 🏔️🌍</div>
+        <div class="project-cat">Photography — Landscape 🌍🏔️</div>
         <h3>Landscape Photography</h3>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:6px;margin:1rem 0;">
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:4px;margin:1rem 0;">
           <img src="images/landscape1.jpg" alt="Landscape" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
           <img src="images/landscape2.jpg" alt="Landscape" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
           <img src="images/landscape3.jpg" alt="Landscape" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
@@ -498,7 +504,7 @@
           <img src="images/landscape17.jpg" alt="Landscape" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
           <img src="images/landscape18.jpg" alt="Landscape" class="gallery-img" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
         </div>
-        <p>Landscape and travel photography shot across the US, Peru, Scotland, and beyond. 🌎🏔️🏴󠁧󠁢󠁳󠁣󠁴󠁿</p>
+        <p>Landscape and travel photography shot across the US, Peru, Scotland, and beyond.</p>
       </div>
 
     </div>
@@ -509,25 +515,30 @@
 <div>
   <div class="section-wrap" id="contact">
     <div class="section-header">
-      <span class="section-label">💌 Contact</span>
+      <span class="section-label">Contact <span>//</span></span>
       <div class="section-header-line"></div>
       <span class="section-num">04</span>
     </div>
-    <div class="contact-aside">
-      <h2>Let's work together!! 🎉⚽🎾🏀</h2>
-      <p>Open to freelance projects, production roles, and collaboration. Based in Edinburgh 🏴󠁧󠁢󠁳󠁣󠁴󠁿, returning to Boston 🇺🇸 in May 2026.</p>
-      <ul class="contact-links">
-        <li><a href="mailto:leorasoib@gmail.com">📧 leorasoib@gmail.com</a></li>
-        <li><a href="https://www.linkedin.com/in/leorasoibelman" target="_blank">💼 LinkedIn</a></li>
-        <li><a href="https://drive.google.com/file/d/1nofugEsJ89bEG71yun94gGYig-Htf6sn/view?usp=share_link" target="_blank">📄 Download CV</a></li>
-      </ul>
+    <div class="contact-grid">
+      <div class="contact-aside">
+        <h2>Let's work <em>together.</em></h2>
+        <p>Open to freelance projects, production roles, and collaboration. Based in Edinburgh 🏴󠁧󠁢󠁳󠁣󠁴󠁿, returning to the Northeast US 🇺🇸 in summer 2026 — open to roles in both the UK and US.</p>
+        <ul class="contact-links">
+          <li><a href="mailto:leorasoib@gmail.com">leorasoib@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com/in/leorasoibelman" target="_blank">LinkedIn</a></li>
+          <li><a href="https://drive.google.com/file/d/1nofugEsJ89bEG71yun94gGYig-Htf6sn/view?usp=share_link" target="_blank">Download CV</a></li>
+        </ul>
+      </div>
+      <div class="contact-note">
+        <strong>Currently looking for:</strong> live event production, social media, and broadcast roles in sports. Based in Edinburgh and relocating to the Northeast US in summer 2026 — open to opportunities on either side of the Atlantic. If you're building something at the intersection of sport and storytelling, I'd love to hear about it.
+      </div>
     </div>
   </div>
 </div>
 
 <footer>
-  <p>© 2026 Leora Soibelman 🎬⚽🎾🏆✨</p>
-  <p><a href="mailto:leorasoib@gmail.com">leorasoib@gmail.com 💌</a></p>
+  <p>© 2026 Leora Soibelman</p>
+  <p><a href="mailto:leorasoib@gmail.com">leorasoib@gmail.com</a></p>
 </footer>
 
 <script>
