@@ -1,0 +1,19 @@
+{
+  "name": "leorasoibelman.github.io",
+  "version": "1.0.0",
+  "description": "Leora Soibelman's personal portfolio website",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leorasoibelman/leorasoibelman.github.io.git"
+  },
+  "keywords": ["portfolio", "personal-website"],
+  "author": "Leora Soibelman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leorasoibelman/leorasoibelman.github.io/issues"
+  },
+  "homepage": "https://github.com/leorasoibelman/leorasoibelman.github.io#readme",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
