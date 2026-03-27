@@ -209,12 +209,14 @@ footer a:hover { color: var(--accent); }
 @media (max-width: 540px) {
   nav { padding: 0.85rem 1rem; }
   .nav-links a { padding: 0.25rem 0.6rem; font-size: 0.78rem; }
+  #hero { padding-top: 7rem; }
   .hero-inner { grid-template-columns: 1fr; }
   .hero-photos { width: 100%; height: 260px; margin-top: 2rem; }
   .hero-photos .card { width: 160px; }
   .hero-photos .card:first-child { transform: translate(-65%, -50%) rotate(-7deg); }
   .hero-photos .card:last-child  { transform: translate(-35%, -50%) rotate(6deg); }
-  .hero-photos .card:hover { transform: translate(-50%, -52%) rotate(0deg) scale(1.04) !important; }
+  .hero-photos .card:first-child:hover { transform: translate(-65%, -52%) rotate(0deg) scale(1.04); }
+  .hero-photos .card:last-child:hover { transform: translate(-35%, -52%) rotate(0deg) scale(1.04); }
   .exp-item { grid-template-columns: 1fr; gap: 0.2rem; padding: 1.5rem 0; }
   footer { flex-direction: column; text-align: center; }
 }
@@ -501,7 +503,6 @@ footer a:hover { color: var(--accent); }
   });
 </script>
 
-<!-- Vercel Speed Insights -->
 <script>
   window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
 </script>
