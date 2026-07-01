@@ -83,10 +83,10 @@ nav {
   color: var(--accent); margin-bottom: 1.25rem;
 }
 .hero-label::before { content: ''; display: inline-block; width: 24px; height: 2px; background: var(--accent); }
-.hero-name { font-family: var(--serif); font-size: clamp(3rem, 7vw, 5.5rem); line-height: 1.05; margin-bottom: 1.5rem; }
+.hero-name { font-family: var(--serif); font-size: clamp(3rem, 7vw, 5.5rem); line-height: 1.05; margin-bottom: 1rem; }
 .hero-name em { color: var(--accent); font-style: italic; }
-.hero-tagline { font-size: clamp(0.95rem, 2vw, 1.05rem); color: var(--muted); max-width: 440px; margin-bottom: 2rem; line-height: 1.75; }
-.hero-pills { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 2.25rem; }
+.hero-tagline { font-size: clamp(0.95rem, 2vw, 1.05rem); color: var(--muted); max-width: 440px; margin-bottom: 1.25rem; line-height: 1.75; }
+.hero-pills { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
 .pill { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.8rem; font-weight: 500; padding: 0.3rem 0.9rem; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; color: var(--muted); }
 .hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 
@@ -143,16 +143,15 @@ nav {
 .section-label { font-family: var(--serif); font-size: 1.1rem; color: var(--text); white-space: nowrap; }
 .section-label span { color: var(--accent); }
 .section-line { flex: 1; height: 1px; background: var(--border); }
-.section-num { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; color: var(--muted); }
 .sep { border: none; border-top: 1px solid var(--border); }
 
-.about-grid { display: grid; grid-template-columns: 1fr 1.65fr; gap: 5rem; align-items: start; }
-.about-aside h2 { font-family: var(--serif); font-size: clamp(1.3rem,3.5vw,1.85rem); line-height: 1.15; margin-bottom: 0.6rem; }
+.about-grid { display: grid; grid-template-columns: 1fr 1.65fr; gap: 3rem; align-items: start; }
+.about-aside h2 { font-family: var(--serif); font-size: clamp(1.3rem,3.5vw,1.85rem); line-height: 1.15; margin-bottom: 0.4rem; }
 .about-aside .location { font-size: 0.85rem; color: var(--muted); }
 .about-aside .location::before { content: '↗ '; color: var(--accent); }
-.about-body p { color: var(--muted); margin-bottom: 1.1rem; font-size: 0.95rem; }
+.about-body p { color: var(--muted); margin-bottom: 0.75rem; font-size: 0.95rem; }
 .about-body p strong { color: var(--text); font-weight: 600; }
-.skills { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1.75rem; }
+.skills { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1.25rem; }
 .tag { padding: 0.3rem 0.9rem; background: var(--surface); font-size: 0.8rem; font-weight: 500; border: 1px solid var(--border); border-radius: 999px; color: var(--text); transition: all 0.15s; cursor: default; }
 .tag:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
 
@@ -173,10 +172,10 @@ nav {
 .video-wrap { position: relative; width: 100%; padding-top: 56.25%; margin-bottom: 1rem; background: #000; border-radius: 0.35rem; overflow: hidden; }
 .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
 .contact-aside h2 { font-family: var(--serif); font-size: clamp(1.6rem,4vw,2.2rem); margin-bottom: 0.75rem; line-height: 1.15; }
 .contact-aside h2 em { color: var(--accent); font-style: italic; }
-.contact-aside p { font-size: 0.95rem; color: var(--muted); margin-bottom: 1.5rem; line-height: 1.7; }
+.contact-aside p { font-size: 0.95rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.7; }
 .contact-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
 .contact-links a { font-size: 0.9rem; font-weight: 500; color: var(--text); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.18s; }
 .contact-links a:hover { color: var(--accent); }
@@ -274,17 +273,16 @@ footer a:hover { color: var(--accent); }
     <div class="section-header">
       <span class="section-label">About <span>//</span></span>
       <div class="section-line"></div>
-      <span class="section-num">01</span>
     </div>
     <div class="about-grid">
       <div class="about-aside">
         <h2>Sports Media Producer &amp; Editor</h2>
-        <p class="location" style="margin-top:0.75rem;">Edinburgh → Northeast US</p>
+        <p class="location" style="margin-top:0.75rem;">Northeast US based · Right to work in the UK</p>
       </div>
       <div class="about-body">
-        <p>I'm a final-year student at the University of Edinburgh and an award-winning filmmaker with a passion for storytelling through post-production. My work spans feature-length documentary, client video, short-form content, and live sports production.</p>
+        <p>I'm a University of Edinburgh graduate with an MA (Hons) in Linguistics, First Class Honours, and an award-winning filmmaker with a passion for storytelling through post-production. My work spans feature-length documentary, client video, short-form content, and live sports production.</p>
         <p>As President of <strong>Edinburgh University Television (EUTV)</strong>, I led the station to a record <strong>8 nominations and 6 wins</strong> at national awards events, including recognition from the Royal Television Society and NaSTA.</p>
-        <p>I'm especially drawn to the intersection of sport and media — how stories of competition, culture, and community come to life on screen. My live production experience includes a Production Runner role at the <strong>US Open 🎾</strong> with Van Wagner.</p>
+        <p>I'm especially drawn to the intersection of sport and media: how stories of competition, culture, and community come to life on screen. I'm currently a <strong>Video Services Intern at the USTA 🎾</strong> in New York.</p>
         <p>I also write. Bylines in <a href="https://www.heyalma.com/i-didnt-expect-to-find-jewish-life-in-scotland-but-im-so-glad-i-did/" target="_blank" style="color:var(--accent);text-decoration:none;font-weight:500;border-bottom:1px solid var(--accent);">Hey Alma</a> and The Boston Globe.</p>
         <div class="skills">
           <span class="tag">Premiere Pro</span>
@@ -307,9 +305,16 @@ footer a:hover { color: var(--accent); }
     <div class="section-header">
       <span class="section-label">Experience <span>//</span></span>
       <div class="section-line"></div>
-      <span class="section-num">02</span>
     </div>
     <div>
+      <div class="exp-item">
+        <div class="exp-date">Jun 2026 – Present<br>NYC 🎾</div>
+        <div class="exp-role">
+          <h3>Video Services Intern</h3>
+          <div class="company">USTA / US Open</div>
+          <p>Supporting the production of social and PR-driven video content for one of the world's most recognised tennis organisations, with direct involvement across the full production pipeline. Contributing to field shoots as both production assistant and camera operator, alongside editing work including logging, footage pulls, assembly cuts, and sequence building. Managing and maintaining professional video, audio, and lighting equipment in a fast-paced sports media environment.</p>
+        </div>
+      </div>
       <div class="exp-item">
         <div class="exp-date">Aug – Sep 2025<br>NYC 🎾</div>
         <div class="exp-role">
@@ -323,7 +328,7 @@ footer a:hover { color: var(--accent); }
         <div class="exp-role">
           <h3>President / Station Manager</h3>
           <div class="company">Edinburgh University Television (EUTV)</div>
-          <p>Led and grew the university's student television station, overseeing all production workflows and creative output. Drove EUTV to record success — 8 national nominations and 6 wins across major student television awards 🏆. Designed and implemented production systems, workshops, and editorial standards that raised output quality and consistency.</p>
+          <p>Led and grew the university's student television station, overseeing all production workflows and creative output. Drove EUTV to record success, earning 8 national nominations and 6 wins across major student television awards 🏆. Designed and implemented production systems, workshops, and editorial standards that raised output quality and consistency.</p>
         </div>
       </div>
       <div class="exp-item">
@@ -347,7 +352,6 @@ footer a:hover { color: var(--accent); }
     <div class="section-header">
       <span class="section-label">Work <span>//</span></span>
       <div class="section-line"></div>
-      <span class="section-num">03</span>
     </div>
     <div class="projects-grid">
 
@@ -467,12 +471,11 @@ footer a:hover { color: var(--accent); }
     <div class="section-header">
       <span class="section-label">Contact <span>//</span></span>
       <div class="section-line"></div>
-      <span class="section-num">04</span>
     </div>
     <div class="contact-grid">
       <div class="contact-aside">
         <h2>Let's work <em>together.</em></h2>
-        <p>Open to freelance projects, production roles, and collaboration. Based in Edinburgh 🏴󠁧󠁢󠁳󠁣󠁴󠁿, relocating to the Northeast US 🇺🇸 in summer 2026 — open to opportunities on either side of the Atlantic.</p>
+        <p>Open to freelance projects, production roles, and collaboration in both the UK and US.</p>
         <ul class="contact-links">
           <li><a href="mailto:leorasoib@gmail.com">leorasoib@gmail.com</a></li>
           <li><a href="https://www.linkedin.com/in/leorasoibelman" target="_blank">LinkedIn</a></li>
@@ -480,7 +483,7 @@ footer a:hover { color: var(--accent); }
         </ul>
       </div>
       <div class="contact-note">
-        <strong>Currently looking for:</strong> live event production, social media, and broadcast roles in sports. Based in Edinburgh and relocating to the Northeast US in summer 2026 — open to opportunities on either side of the Atlantic. If you're building something at the intersection of sport and storytelling, I'd love to hear about it.
+        <strong>Currently:</strong> Video Services Intern at the USTA in New York. Open to production roles, live or non-live, plus social media and broadcast roles in sports, on either side of the Atlantic. If you're building something at the intersection of sport and storytelling, I'd love to hear about it.
       </div>
     </div>
   </div>
