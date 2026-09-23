@@ -25,7 +25,6 @@
   --bg: #16121f;
   --bg-2: #1c1728;
   --surface: #221c31;
-  --surface-hover: #2a2240;
   --text: #f3effa;
   --muted: #a8a0bb;
   --accent: #b096ec;
@@ -38,6 +37,7 @@
 
 html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
 body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.6; }
+img { max-width: 100%; }
 
 /* NAV */
 nav {
@@ -64,16 +64,12 @@ nav {
 }
 .hero-inner {
   max-width: 1100px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1.15fr;
+  display: grid; grid-template-columns: 1fr 330px;
   gap: 3rem; align-items: center;
-}
-.hero-label {
-  font-size: 0.85rem; font-weight: 500;
-  color: var(--accent); margin-bottom: 0.6rem;
 }
 .hero-name { font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 4.75rem); line-height: 1.02; margin-bottom: 1rem; }
 .hero-name em { color: var(--accent); font-style: italic; }
-.hero-tagline { font-size: clamp(0.95rem, 2vw, 1.05rem); color: var(--muted); max-width: 440px; margin-bottom: 1.5rem; }
+.hero-tagline { font-size: clamp(0.95rem, 2vw, 1.05rem); color: var(--muted); max-width: 460px; margin-bottom: 1.5rem; }
 .hero-btns { display: flex; gap: 0.6rem; flex-wrap: wrap; }
 
 .btn { font-family: var(--sans); font-size: 0.85rem; font-weight: 600; padding: 0.7rem 1.5rem; background: var(--accent); color: #16121f; border: none; border-radius: 999px; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.18s; }
@@ -81,9 +77,15 @@ nav {
 .btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--border); }
 .btn-outline:hover { border-color: var(--accent); color: var(--accent); background: transparent; }
 
-/* HERO PHOTO */
-.hero-photo { margin: 0; }
-.hero-photo img { width: 100%; height: auto; display: block; border-radius: 0.4rem; }
+/* HERO PHOTO: framed */
+.hero-photo {
+  margin: 0;
+  padding: 6px;
+  border: 1.5px solid var(--accent-deep);
+  border-radius: 0.65rem;
+  background: var(--bg-2);
+}
+.hero-photo img { width: 100%; height: auto; display: block; border-radius: 0.35rem; }
 
 /* SECTIONS */
 .section-wrap { max-width: 1100px; margin: 0 auto; padding: 2.25rem clamp(1.25rem,5vw,3rem); border-bottom: 1px solid var(--border); }
@@ -91,18 +93,20 @@ nav {
 .section-label { font-family: var(--serif); font-size: 1.1rem; white-space: nowrap; }
 .section-line { flex: 1; height: 1px; background: var(--border); }
 
-/* ABOUT */
-.about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 2.5rem; align-items: start; }
-.about-aside h2 { font-family: var(--serif); font-size: clamp(1.3rem,3vw,1.7rem); line-height: 1.15; margin-bottom: 0.5rem; }
-.about-aside .location { font-size: 0.85rem; color: var(--muted); }
-.about-photos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin-top: 1rem; }
-.about-photos img:first-child { grid-column: 1 / -1; aspect-ratio: 4/3; }
-.about-body p { color: var(--muted); margin-bottom: 0.6rem; font-size: 0.93rem; }
-.about-body p strong { color: var(--text); font-weight: 600; }
-.about-body a { color: var(--accent); text-decoration: none; font-weight: 500; border-bottom: 1px solid var(--accent); }
-.about-body .skills-label { font-size: 0.66rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin: 1rem 0 0; }
+/* ABOUT: text left, photos right */
+.about-grid { display: grid; grid-template-columns: 1fr 300px; gap: 2.5rem; align-items: start; }
+.about-text h2 { font-family: var(--serif); font-size: clamp(1.3rem,3vw,1.7rem); line-height: 1.15; margin-bottom: 0.3rem; }
+.about-text .location { font-size: 0.85rem; color: var(--accent); margin-bottom: 1rem; }
+.about-text p { color: var(--muted); margin-bottom: 0.6rem; font-size: 0.93rem; }
+.about-text p strong { color: var(--text); font-weight: 600; }
+.about-text a { color: var(--accent); text-decoration: none; font-weight: 500; border-bottom: 1px solid var(--accent); }
+.about-text .skills-label { font-size: 0.66rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin: 1rem 0 0; }
 .skills { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.45rem; }
 .tag { padding: 0.2rem 0.75rem; background: var(--surface); color: var(--text); font-size: 0.76rem; font-weight: 500; border: 1px solid var(--border); border-radius: 999px; cursor: default; }
+
+.about-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.about-photos .gallery-img { aspect-ratio: 1; }
+.about-photos .gallery-img:first-child { grid-column: 1 / -1; aspect-ratio: 4/5; }
 
 /* EXPERIENCE */
 .exp-item { display: grid; grid-template-columns: 130px 1fr; gap: 1.5rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
@@ -129,7 +133,7 @@ nav {
 .gallery { display: grid; gap: 6px; margin: 0.75rem 0; }
 .gallery.sports { grid-template-columns: repeat(4,1fr); }
 .gallery.landscape { grid-template-columns: repeat(6,1fr); }
-.gallery-img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; cursor: zoom-in; transition: opacity 0.2s; border-radius: 0.25rem; }
+.gallery-img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; cursor: zoom-in; transition: opacity 0.2s; border-radius: 0.3rem; }
 .gallery-img:hover { opacity: 0.85; }
 
 /* CONTACT */
@@ -154,12 +158,14 @@ footer a:hover { color: var(--accent); }
 
 /* TABLET */
 @media (max-width: 900px) {
-  .hero-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .hero-inner { grid-template-columns: 1fr 260px; gap: 2rem; }
   .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .about-photos { grid-template-columns: repeat(3, 1fr); }
+  .about-photos .gallery-img:first-child { grid-column: auto; aspect-ratio: 1; }
   .projects-grid { grid-template-columns: repeat(2,1fr); }
   .featured-inner { grid-template-columns: 1fr; gap: 0.75rem; }
   .gallery.sports { grid-template-columns: repeat(4,1fr); }
-  .gallery.landscape { grid-template-columns: repeat(6,1fr); }
+  .gallery.landscape { grid-template-columns: repeat(4,1fr); }
 }
 
 /* MOBILE */
@@ -169,10 +175,11 @@ footer a:hover { color: var(--accent); }
   .nav-links a { padding: 0.2rem 0.55rem; font-size: 0.78rem; }
   #hero { padding-top: 6.75rem; padding-bottom: 1.75rem; }
   .hero-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+  .hero-photo { width: 100%; max-width: 300px; justify-self: center; }
   .section-wrap { padding: 1.75rem 1.25rem; }
   .exp-item { grid-template-columns: 1fr; gap: 0.15rem; padding: 0.9rem 0; }
   .projects-grid { grid-template-columns: 1fr; }
-  .gallery.sports { grid-template-columns: repeat(4,1fr); }
+  .gallery.sports { grid-template-columns: repeat(2,1fr); }
   .gallery.landscape { grid-template-columns: repeat(3,1fr); }
   footer { flex-direction: column; text-align: center; }
 }
@@ -206,7 +213,7 @@ footer a:hover { color: var(--accent); }
       </div>
     </div>
     <figure class="hero-photo">
-      <img src="images/hero.jpeg" alt="Leora Soibelman working at the US Open" />
+      <img src="images/hero.jpeg" alt="Leora Soibelman at the US Open" />
     </figure>
   </div>
 </section>
@@ -217,16 +224,9 @@ footer a:hover { color: var(--accent); }
     <div class="section-line"></div>
   </div>
   <div class="about-grid">
-    <div class="about-aside">
+    <div class="about-text">
       <h2>Sports Media Producer &amp; Editor</h2>
       <p class="location">London based from October 2026 · Right to work in the UK</p>
-      <div class="about-photos">
-        <img data-base="images/about1" alt="Leora" class="gallery-img" />
-        <img data-base="images/about2" alt="Leora" class="gallery-img" />
-        <img data-base="images/about3" alt="Leora" class="gallery-img" />
-      </div>
-    </div>
-    <div class="about-body">
       <p>I'm a University of Edinburgh graduate with First Class Honours in Linguistics, which gave me a global outlook and a real appreciation for working across cultures. My work spans documentary, client video, short-form content, and live sports production.</p>
       <p>This summer I interned with the <strong>USTA's Video Services team</strong> and stayed on as a PA through the US Open, where I pitched, produced, and edited my own work for the US Open, USTA, and WTA social channels.</p>
       <p>As President of <strong>Edinburgh University Television</strong>, I led the station to a record <strong>8 nominations and 6 wins</strong> at national awards, including recognition from the Royal Television Society and NaSTA. I also write, with bylines in <a href="https://www.heyalma.com/i-didnt-expect-to-find-jewish-life-in-scotland-but-im-so-glad-i-did/" target="_blank">Hey Alma</a> and The Boston Globe.</p>
@@ -247,6 +247,11 @@ footer a:hover { color: var(--accent); }
         <span class="tag">Social-first editing</span>
         <span class="tag">Spanish (working proficiency)</span>
       </div>
+    </div>
+    <div class="about-photos">
+      <img data-base="images/about1" alt="Leora" class="gallery-img" />
+      <img data-base="images/about2" alt="Leora" class="gallery-img" />
+      <img data-base="images/about3" alt="Leora" class="gallery-img" />
     </div>
   </div>
 </div>
@@ -447,9 +452,10 @@ footer a:hover { color: var(--accent); }
   function openLB(src) { document.getElementById('lb-img').src = src; document.getElementById('lightbox').classList.add('active'); }
   function closeLB() { document.getElementById('lightbox').classList.remove('active'); }
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); });
+
   // Load About photos whatever the file extension (.jpg, .jpeg, .png...)
   document.querySelectorAll('img[data-base]').forEach(img => {
-    const exts = ['.jpg', '.jpeg', '.JPG', '.JPEG', '.png', '.PNG', '.heic', '.HEIC'];
+    const exts = ['.jpg', '.jpeg', '.JPG', '.JPEG', '.png', '.PNG'];
     let i = 0;
     img.onerror = () => {
       i++;
@@ -458,10 +464,9 @@ footer a:hover { color: var(--accent); }
     };
     img.src = img.dataset.base + exts[0];
   });
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.gallery-img').forEach(img => {
-      img.addEventListener('click', () => openLB(img.src));
-    });
+
+  document.querySelectorAll('.gallery-img').forEach(img => {
+    img.addEventListener('click', () => openLB(img.src));
   });
 </script>
 
