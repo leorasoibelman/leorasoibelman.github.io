@@ -83,8 +83,7 @@ nav {
 
 /* HERO PHOTO */
 .hero-photo { margin: 0; }
-.hero-photo img { width: 100%; display: block; object-fit: cover; aspect-ratio: 4/3; border-radius: 0.4rem; }
-.hero-photo figcaption { font-size: 0.78rem; color: var(--muted); margin-top: 0.5rem; }
+.hero-photo img { width: 100%; height: auto; display: block; border-radius: 0.4rem; }
 
 /* SECTIONS */
 .section-wrap { max-width: 1100px; margin: 0 auto; padding: 2.25rem clamp(1.25rem,5vw,3rem); border-bottom: 1px solid var(--border); }
@@ -127,9 +126,9 @@ nav {
 .video-wrap { position: relative; width: 100%; padding-top: 56.25%; margin-bottom: 0.7rem; background: #000; border-radius: 0.35rem; overflow: hidden; }
 .featured-inner .video-wrap { margin-bottom: 0; }
 .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-.gallery { display: grid; gap: 4px; margin: 0.6rem 0; }
-.gallery.sports { grid-template-columns: repeat(8,1fr); }
-.gallery.landscape { grid-template-columns: repeat(9,1fr); }
+.gallery { display: grid; gap: 6px; margin: 0.75rem 0; }
+.gallery.sports { grid-template-columns: repeat(4,1fr); }
+.gallery.landscape { grid-template-columns: repeat(6,1fr); }
 .gallery-img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; cursor: zoom-in; transition: opacity 0.2s; border-radius: 0.25rem; }
 .gallery-img:hover { opacity: 0.85; }
 
@@ -222,9 +221,9 @@ footer a:hover { color: var(--accent); }
       <h2>Sports Media Producer &amp; Editor</h2>
       <p class="location">London based from October 2026 · Right to work in the UK</p>
       <div class="about-photos">
-        <img src="images/about1.jpg" alt="Leora" class="gallery-img" onerror="this.style.display='none'" />
-        <img src="images/about2.jpg" alt="Leora" class="gallery-img" onerror="this.style.display='none'" />
-        <img src="images/about3.jpg" alt="Leora" class="gallery-img" onerror="this.style.display='none'" />
+        <img data-base="images/about1" alt="Leora" class="gallery-img" />
+        <img data-base="images/about2" alt="Leora" class="gallery-img" />
+        <img data-base="images/about3" alt="Leora" class="gallery-img" />
       </div>
     </div>
     <div class="about-body">
@@ -448,6 +447,17 @@ footer a:hover { color: var(--accent); }
   function openLB(src) { document.getElementById('lb-img').src = src; document.getElementById('lightbox').classList.add('active'); }
   function closeLB() { document.getElementById('lightbox').classList.remove('active'); }
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); });
+  // Load About photos whatever the file extension (.jpg, .jpeg, .png...)
+  document.querySelectorAll('img[data-base]').forEach(img => {
+    const exts = ['.jpg', '.jpeg', '.JPG', '.JPEG', '.png', '.PNG', '.heic', '.HEIC'];
+    let i = 0;
+    img.onerror = () => {
+      i++;
+      if (i < exts.length) img.src = img.dataset.base + exts[i];
+      else img.style.display = 'none';
+    };
+    img.src = img.dataset.base + exts[0];
+  });
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.gallery-img').forEach(img => {
       img.addEventListener('click', () => openLB(img.src));
