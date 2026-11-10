@@ -14,12 +14,20 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Leora Soibelman">
 <meta name="twitter:description" content="Sports producer and editor, telling stories about sport and culture that leave people having learned or felt something.">
+
 <script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  window.va = window.va || function () {
+    (window.vaq = window.vaq || []).push(arguments);
+  };
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
+
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 :root {
   --bg: #16121f;
@@ -35,50 +43,158 @@
   --sans: 'DM Sans', sans-serif;
 }
 
-html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
-body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.6; }
-img { max-width: 100%; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-offset, 4.5rem);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+}
 
 /* NAV */
+
 nav {
-  position: fixed; top: 0; left: 0; right: 0;
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 0.4rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
   padding: 0.8rem clamp(1.25rem, 5vw, 3rem);
   background: rgba(22,18,31,0.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
   z-index: 100;
 }
-.nav-name { font-family: var(--serif); font-size: 1.1rem; color: var(--text); text-decoration: none; }
-.nav-name em { color: var(--accent); font-style: italic; }
-.nav-links { display: flex; gap: 0.3rem; list-style: none; flex-wrap: wrap; }
-.nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--muted); text-decoration: none; padding: 0.25rem 0.8rem; border-radius: 999px; cursor: pointer; transition: all 0.18s; }
-.nav-links a:hover { color: var(--text); background: var(--accent-light); }
+
+.nav-name {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-name em {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.3rem;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.25rem 0.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.18s, background 0.18s;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="location"] {
+  color: var(--text);
+  background: var(--accent-light);
+}
 
 /* HERO */
+
 #hero {
   padding: 5.5rem clamp(1.25rem,5vw,3rem) 2.5rem;
   background: linear-gradient(170deg, #211933 0%, var(--bg) 70%);
   border-bottom: 1px solid var(--border);
 }
+
 .hero-inner {
-  max-width: 1100px; margin: 0 auto;
-  display: grid; grid-template-columns: minmax(0, 540px) 340px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 540px) 340px;
   justify-content: center;
-  gap: 3.5rem; align-items: center;
+  gap: 3.5rem;
+  align-items: center;
 }
-.hero-name { font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 4.75rem); line-height: 1.02; margin-bottom: 1rem; }
-.hero-name em { color: var(--accent); font-style: italic; }
-.hero-tagline { font-size: clamp(0.95rem, 2vw, 1.05rem); color: var(--muted); max-width: 460px; margin-bottom: 1.5rem; }
-.hero-btns { display: flex; gap: 0.6rem; flex-wrap: wrap; }
 
-.btn { font-family: var(--sans); font-size: 0.85rem; font-weight: 600; padding: 0.7rem 1.5rem; background: var(--accent); color: #16121f; border: none; border-radius: 999px; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.18s; }
-.btn:hover { background: #c3adf2; }
-.btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--border); }
-.btn-outline:hover { border-color: var(--accent); color: var(--accent); background: transparent; }
+.hero-name {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 6vw, 4.75rem);
+  line-height: 1.02;
+  margin-bottom: 1rem;
+}
 
-/* HERO PHOTO: framed */
+.hero-name em {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.hero-tagline {
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  color: var(--muted);
+  max-width: 460px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.7rem 1.5rem;
+  background: var(--accent);
+  color: #16121f;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition:
+    background 0.18s,
+    border-color 0.18s,
+    color 0.18s,
+    transform 0.18s;
+}
+
+.btn:hover {
+  background: #c3adf2;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1.5px solid var(--border);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: transparent;
+}
+
+/* HERO PHOTO */
+
 .hero-photo {
   margin: 0;
   padding: 6px;
@@ -86,120 +202,553 @@ nav {
   border-radius: 0.65rem;
   background: var(--bg-2);
 }
-.hero-photo img { width: 100%; aspect-ratio: 1; object-fit: cover; object-position: center 80%; display: block; border-radius: 0.35rem; }
+
+.hero-photo img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center 80%;
+  display: block;
+  border-radius: 0.35rem;
+}
 
 /* SECTIONS */
-.section-wrap { max-width: 1100px; margin: 0 auto; padding: 2.25rem clamp(1.25rem,5vw,3rem); border-bottom: 1px solid var(--border); }
-.section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
-.section-label { font-family: var(--serif); font-size: 1.1rem; white-space: nowrap; }
-.section-line { flex: 1; height: 1px; background: var(--border); }
 
-/* ABOUT: text left, photos right */
-.about-grid { display: grid; grid-template-columns: 1fr 300px; gap: 2.5rem; align-items: start; }
-.about-text h2 { font-family: var(--serif); font-size: clamp(1.3rem,3vw,1.7rem); line-height: 1.15; margin-bottom: 0.3rem; }
-.about-text .location { font-size: 0.85rem; color: var(--accent); margin-bottom: 1rem; }
-.about-text p { color: var(--muted); margin-bottom: 0.6rem; font-size: 0.93rem; }
-.about-text p strong { color: var(--text); font-weight: 600; }
-.about-text a { color: var(--accent); text-decoration: none; font-weight: 500; border-bottom: 1px solid var(--accent); }
-.about-text .skills-label { font-size: 0.66rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin: 1rem 0 0; }
-.skills { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.45rem; }
-.tag { padding: 0.2rem 0.75rem; background: var(--surface); color: var(--text); font-size: 0.76rem; font-weight: 500; border: 1px solid var(--border); border-radius: 999px; cursor: default; }
+.section-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.25rem clamp(1.25rem,5vw,3rem);
+  border-bottom: 1px solid var(--border);
+}
 
-.about-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-.about-photos .gallery-img { aspect-ratio: 4/5; }
-.about-photos .gallery-img:first-child { grid-column: 1 / -1; aspect-ratio: 3/2; object-position: center 70%; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.section-label {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+.section-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ABOUT */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.about-text h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.3rem,3vw,1.7rem);
+  line-height: 1.15;
+  margin-bottom: 0.3rem;
+}
+
+.about-text .location {
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+  font-size: 0.93rem;
+}
+
+.about-text p strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.about-text a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid var(--accent);
+}
+
+.about-text .skills-label {
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 1rem 0 0;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.45rem;
+}
+
+.tag {
+  padding: 0.2rem 0.75rem;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.76rem;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: default;
+}
+
+.about-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.about-photos .gallery-img {
+  aspect-ratio: 4/5;
+}
+
+.about-photos .gallery-img:first-child {
+  grid-column: 1 / -1;
+  aspect-ratio: 3/2;
+  object-position: center 70%;
+}
 
 /* EXPERIENCE */
-.exp-item { display: grid; grid-template-columns: 130px 1fr; gap: 1.5rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
-.exp-item:first-child { border-top: 1px solid var(--border); }
-.exp-date { font-size: 0.78rem; color: var(--muted); padding-top: 0.15rem; line-height: 1.45; }
-.exp-role h3 { font-family: var(--serif); font-size: 1.02rem; line-height: 1.3; }
-.exp-role .company { font-size: 0.84rem; color: var(--accent); font-weight: 500; margin-bottom: 0.35rem; }
-.exp-role p { font-size: 0.88rem; color: var(--muted); }
-.exp-cta { margin-top: 1.25rem; }
+
+.exp-item {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.exp-item:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.exp-date {
+  font-size: 0.78rem;
+  color: var(--muted);
+  padding-top: 0.15rem;
+  line-height: 1.45;
+}
+
+.exp-role h3 {
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  line-height: 1.3;
+}
+
+.exp-role .company {
+  font-size: 0.84rem;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+}
+
+.exp-role p {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.exp-cta {
+  margin-top: 1.25rem;
+}
 
 /* WORK */
-.projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 0.5rem; overflow: hidden; }
-.project-card { background: var(--bg-2); padding: 1.1rem; }
-.project-card.wide { grid-column: 1 / -1; }
-.project-card.featured { background: var(--surface); }
-.featured-inner { display: grid; grid-template-columns: 1.6fr 1fr; gap: 1.5rem; align-items: center; }
-.project-cat { font-size: 0.66rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.35rem; }
-.project-card h3 { font-family: var(--serif); font-size: 0.98rem; margin-bottom: 0.3rem; line-height: 1.3; }
-.project-card p { font-size: 0.83rem; color: var(--muted); line-height: 1.55; }
-.award-note { margin-top: 0.5rem; font-size: 0.75rem; font-weight: 600; color: var(--accent); }
-.video-wrap { position: relative; width: 100%; padding-top: 56.25%; margin-bottom: 0.7rem; background: #000; border-radius: 0.35rem; overflow: hidden; }
-.featured-inner .video-wrap { margin-bottom: 0; }
-.video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-.gallery { display: grid; gap: 6px; margin: 0.75rem 0; }
-.gallery.sports { grid-template-columns: repeat(4,1fr); }
-.gallery.landscape { grid-template-columns: repeat(6,1fr); }
-.gallery-img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; cursor: zoom-in; transition: opacity 0.2s; border-radius: 0.3rem; }
-.gallery-img:hover { opacity: 0.85; }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.project-card {
+  background: var(--bg-2);
+  padding: 1.1rem;
+}
+
+.project-card.wide {
+  grid-column: 1 / -1;
+}
+
+.project-card.featured {
+  background: var(--surface);
+}
+
+.featured-inner {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.project-cat {
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+
+.project-card h3 {
+  font-family: var(--serif);
+  font-size: 0.98rem;
+  margin-bottom: 0.3rem;
+  line-height: 1.3;
+}
+
+.project-card p {
+  font-size: 0.83rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.award-note {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.video-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  margin-bottom: 0.7rem;
+  background: #000;
+  border-radius: 0.35rem;
+  overflow: hidden;
+}
+
+.featured-inner .video-wrap {
+  margin-bottom: 0;
+}
+
+.video-wrap iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.gallery {
+  display: grid;
+  gap: 6px;
+  margin: 0.75rem 0;
+}
+
+.gallery.sports {
+  grid-template-columns: repeat(4,1fr);
+}
+
+.gallery.landscape {
+  grid-template-columns: repeat(6,1fr);
+}
+
+.gallery-img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+  cursor: zoom-in;
+  transition: opacity 0.2s;
+  border-radius: 0.3rem;
+}
+
+.gallery-img:hover {
+  opacity: 0.85;
+}
 
 /* CONTACT */
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
-.contact-aside p { font-size: 0.93rem; color: var(--muted); margin-bottom: 0.75rem; }
-.contact-links { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
-.contact-links a { font-size: 0.9rem; font-weight: 500; color: var(--text); text-decoration: none; transition: color 0.18s; }
-.contact-links a:hover { color: var(--accent); }
-.contact-note { background: var(--surface); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.1rem 1.25rem; font-size: 0.88rem; color: var(--muted); }
-.contact-note strong { color: var(--text); }
 
-footer { padding: 1.1rem clamp(1.25rem,5vw,3rem); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; max-width: 1100px; margin: 0 auto; }
-footer p { font-size: 0.78rem; color: var(--muted); }
-footer a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
-footer a:hover { color: var(--accent); }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.contact-aside p {
+  font-size: 0.93rem;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.contact-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.contact-links a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.18s;
+}
+
+.contact-links a:hover {
+  color: var(--accent);
+}
+
+.contact-note {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 1.1rem 1.25rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.contact-note strong {
+  color: var(--text);
+}
+
+/* FOOTER */
+
+footer {
+  padding: 1.1rem clamp(1.25rem,5vw,3rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+footer p {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+footer a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+footer a:hover {
+  color: var(--accent);
+}
 
 /* LIGHTBOX */
-.lb-overlay { display: none; position: fixed; inset: 0; background: rgba(10,8,15,0.92); z-index: 999; align-items: center; justify-content: center; cursor: zoom-out; }
-.lb-overlay.active { display: flex; }
-.lb-overlay img { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 0.5rem; }
-.lb-close { position: fixed; top: 1.25rem; right: 1.25rem; color: #fff; font-size: 1.4rem; cursor: pointer; background: rgba(255,255,255,0.12); border: none; border-radius: 50%; width: 2.25rem; height: 2.25rem; display: flex; align-items: center; justify-content: center; }
+
+.lb-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10,8,15,0.92);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+
+.lb-overlay.active {
+  display: flex;
+}
+
+.lb-overlay img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 0.5rem;
+}
+
+.lb-close {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  background: rgba(255,255,255,0.12);
+  border: none;
+  border-radius: 50%;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* SUBTLE INTERACTIONS */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .project-card {
+    transition: background 0.2s ease;
+  }
+
+  .project-card:not(.featured):hover {
+    background: var(--surface);
+  }
+}
 
 /* TABLET */
+
 @media (max-width: 900px) {
-  .hero-inner { grid-template-columns: 1fr 260px; gap: 2rem; }
-  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 1.25rem; }
-  .about-photos { grid-template-columns: repeat(3, 1fr); }
-  .about-photos .gallery-img, .about-photos .gallery-img:first-child { grid-column: auto; aspect-ratio: 1; }
-  .projects-grid { grid-template-columns: repeat(2,1fr); }
-  .featured-inner { grid-template-columns: 1fr; gap: 0.75rem; }
-  .gallery.sports { grid-template-columns: repeat(4,1fr); }
-  .gallery.landscape { grid-template-columns: repeat(4,1fr); }
+  .hero-inner {
+    grid-template-columns: 1fr 260px;
+    gap: 2rem;
+  }
+
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .about-photos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .about-photos .gallery-img,
+  .about-photos .gallery-img:first-child {
+    grid-column: auto;
+    aspect-ratio: 1;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .featured-inner {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .gallery.sports,
+  .gallery.landscape {
+    grid-template-columns: repeat(4,1fr);
+  }
 }
 
 /* MOBILE */
+
 @media (max-width: 640px) {
-  html { scroll-padding-top: 6.5rem; }
-  nav { padding: 0.7rem 1rem; }
-  .nav-links a { padding: 0.2rem 0.55rem; font-size: 0.78rem; }
-  #hero { padding-top: 6.75rem; padding-bottom: 1.75rem; }
-  .hero-inner { grid-template-columns: 1fr; gap: 1.5rem; }
-  .hero-photo { width: 100%; max-width: 300px; justify-self: center; }
-  .section-wrap { padding: 1.75rem 1.25rem; }
-  .exp-item { grid-template-columns: 1fr; gap: 0.15rem; padding: 0.9rem 0; }
-  .projects-grid { grid-template-columns: 1fr; }
-  .gallery.sports { grid-template-columns: repeat(2,1fr); }
-  .gallery.landscape { grid-template-columns: repeat(3,1fr); }
-  footer { flex-direction: column; text-align: center; }
+  html {
+    scroll-padding-top: var(--nav-offset, 6.5rem);
+  }
+
+  nav {
+    padding: 0.7rem 1rem;
+  }
+
+  .nav-links a {
+    padding: 0.2rem 0.55rem;
+    font-size: 0.78rem;
+  }
+
+  #hero {
+    padding-top: 6.75rem;
+    padding-bottom: 1.75rem;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .hero-photo {
+    width: 100%;
+    max-width: 300px;
+    justify-self: center;
+  }
+
+  .section-wrap {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .exp-item {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+    padding: 0.9rem 0;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery.sports {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .gallery.landscape {
+    grid-template-columns: repeat(3,1fr);
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+
+  .btn:hover {
+    transform: none;
+  }
 }
 </style>
 </head>
+
 <body>
 
 <div class="lb-overlay" id="lightbox" onclick="closeLB()">
-  <button class="lb-close" onclick="closeLB()">&times;</button>
+  <button class="lb-close" aria-label="Close photograph" onclick="closeLB()">&times;</button>
   <img id="lb-img" src="" alt="" />
 </div>
 
 <nav>
   <a href="#" class="nav-name">Leora <em>Soibelman</em></a>
   <ul class="nav-links">
-    <li><a onclick="goTo('about')">About</a></li>
-    <li><a onclick="goTo('experience')">Experience</a></li>
-    <li><a onclick="goTo('projects')">Work</a></li>
-    <li><a onclick="goTo('contact')">Contact</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
@@ -209,8 +758,8 @@ footer a:hover { color: var(--accent); }
       <h1 class="hero-name">Leora<br><em>Soibelman</em></h1>
       <p class="hero-tagline">Sports producer and editor, telling stories about sport and culture that leave people having learned or felt something.</p>
       <div class="hero-btns">
-        <a onclick="goTo('projects')" class="btn">View My Work</a>
-        <a onclick="goTo('contact')" class="btn btn-outline">Get in Touch</a>
+        <a href="#projects" class="btn">View My Work</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
       </div>
     </div>
     <figure class="hero-photo">
@@ -224,14 +773,16 @@ footer a:hover { color: var(--accent); }
     <span class="section-label">About</span>
     <div class="section-line"></div>
   </div>
+
   <div class="about-grid">
     <div class="about-text">
       <h2>Sports Media Producer &amp; Editor</h2>
-      <p class="location">London based from October 2026 · Right to work in the UK</p>
+      <p class="location">Open to remote work or opportunities in Boston, New York, or London · Right to work in the UK &amp; EU</p>
       <p>I'm a University of Edinburgh graduate with First Class Honours in Linguistics, which gave me a global outlook and a real appreciation for working across cultures. My work spans documentary, client video, short-form content, and live sports production.</p>
       <p>This summer I interned with the <strong>USTA's Video Services team</strong> and stayed on as a PA through the US Open, where I pitched, produced, and edited my own work for the US Open, USTA, and WTA social channels.</p>
       <p>As President of <strong>Edinburgh University Television</strong>, I led the station to a record <strong>8 nominations and 6 wins</strong> at national awards, including recognition from the Royal Television Society and NaSTA. I also write, with bylines in <a href="https://www.heyalma.com/i-didnt-expect-to-find-jewish-life-in-scotland-but-im-so-glad-i-did/" target="_blank">Hey Alma</a> and The Boston Globe.</p>
       <p>Outside of work, I'm a big Boston sports fan, love a good pub quiz, and am always happy to share fun language facts with anyone who will listen.</p>
+
       <p class="skills-label">Skills &amp; Tools</p>
       <div class="skills">
         <span class="tag">Premiere Pro</span>
@@ -249,6 +800,7 @@ footer a:hover { color: var(--accent); }
         <span class="tag">Spanish (working proficiency)</span>
       </div>
     </div>
+
     <div class="about-photos">
       <img data-base="images/about1" alt="Leora" class="gallery-img" />
       <img data-base="images/about2" alt="Leora" class="gallery-img" />
@@ -262,6 +814,7 @@ footer a:hover { color: var(--accent); }
     <span class="section-label">Experience</span>
     <div class="section-line"></div>
   </div>
+
   <div>
     <div class="exp-item">
       <div class="exp-date">Jun – Sep 2026<br>NYC</div>
@@ -271,6 +824,7 @@ footer a:hover { color: var(--accent); }
         <p>Pitched, produced, and edited original content that ran on the US Open, USTA, and WTA social channels during the tournament, collectively passing 1M views. Operated a Canon C70 as B camera on field and sponsor activation shoots, filmed footage that aired on New York local news, and handled media management, footage pulls, and assembly cuts.</p>
       </div>
     </div>
+
     <div class="exp-item">
       <div class="exp-date">Feb 2026<br>London</div>
       <div class="exp-role">
@@ -279,6 +833,7 @@ footer a:hover { color: var(--accent); }
         <p>Shadowed assistant editors and the production team at a premier London edit house, building experience with Avid Media Composer, multicam sync maps, and proxy workflows.</p>
       </div>
     </div>
+
     <div class="exp-item">
       <div class="exp-date">Aug – Sep 2025<br>NYC</div>
       <div class="exp-role">
@@ -287,6 +842,7 @@ footer a:hover { color: var(--accent); }
         <p>Supported live, in-venue production on a show court. Stepped into replay operations when a colleague was unexpectedly out sick, keeping playback and timing uninterrupted during live matches.</p>
       </div>
     </div>
+
     <div class="exp-item">
       <div class="exp-date">Mar 2024 – Mar 2025<br>Edinburgh</div>
       <div class="exp-role">
@@ -295,6 +851,7 @@ footer a:hover { color: var(--accent); }
         <p>Led the university's student television station across all production workflows and creative output, earning a record 8 national nominations and 6 wins. Built production systems, workshops, and editorial standards that raised output quality.</p>
       </div>
     </div>
+
     <div class="exp-item">
       <div class="exp-date">2020 – 2022<br>Remote</div>
       <div class="exp-role">
@@ -303,6 +860,7 @@ footer a:hover { color: var(--accent); }
         <p>Owned production of non-live video for the Commence 2030 program, featuring figures including Dwayne Johnson and Andrew Yang, and made social-first content for the award-winning podcast How to Citizen.</p>
       </div>
     </div>
+
     <div class="exp-item">
       <div class="exp-date">Ongoing</div>
       <div class="exp-role">
@@ -312,6 +870,7 @@ footer a:hover { color: var(--accent); }
       </div>
     </div>
   </div>
+
   <div class="exp-cta">
     <a href="https://drive.google.com/file/d/1P86-SgAgmZGD06dHLIJTyF7L1xDFUNVv/view?usp=sharing" target="_blank" class="btn btn-outline">View Full CV →</a>
   </div>
@@ -322,11 +881,13 @@ footer a:hover { color: var(--accent); }
     <span class="section-label">Work</span>
     <div class="section-line"></div>
   </div>
-  <div class="projects-grid">
 
+  <div class="projects-grid">
     <div class="project-card wide featured">
       <div class="featured-inner">
-        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/mvjqtEFTc0M" allowfullscreen></iframe></div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/mvjqtEFTc0M" title="International Women’s Day" loading="lazy" allowfullscreen></iframe>
+        </div>
         <div>
           <div class="project-cat">Featured</div>
           <h3>University of Edinburgh Sports Union: International Women's Day</h3>
@@ -336,7 +897,9 @@ footer a:hover { color: var(--accent); }
     </div>
 
     <div class="project-card">
-      <div class="video-wrap"><iframe src="https://www.youtube.com/embed/ynhiHpwuA4I" allowfullscreen></iframe></div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/ynhiHpwuA4I" title="TARASPOTTING" loading="lazy" allowfullscreen></iframe>
+      </div>
       <div class="project-cat">Narrative</div>
       <h3>TARASPOTTING</h3>
       <p>A mockumentary following an Edinburgh student with an overbearing ego and a cast of misfit actors as she attempts to direct a film inspired by Trainspotting.</p>
@@ -344,35 +907,45 @@ footer a:hover { color: var(--accent); }
     </div>
 
     <div class="project-card">
-      <div class="video-wrap"><iframe src="https://www.youtube.com/embed/Babdx26SjiU" allowfullscreen></iframe></div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/Babdx26SjiU" title="Shapes of Days trailer" loading="lazy" allowfullscreen></iframe>
+      </div>
       <div class="project-cat">Narrative</div>
       <h3>Shapes of Days</h3>
       <p>Ryan, a quiet, introspective student in emotional and existential drift, observes more than he participates.</p>
     </div>
 
     <div class="project-card">
-      <div class="video-wrap"><iframe src="https://www.youtube.com/embed/etzh6KZOzlY" allowfullscreen></iframe></div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/etzh6KZOzlY" title="FLAGGED" loading="lazy" allowfullscreen></iframe>
+      </div>
       <div class="project-cat">Documentary</div>
       <h3>FLAGGED</h3>
       <p>A two-part documentary on student integration at the University of Edinburgh, examining lived experience and the structural barriers behind it.</p>
     </div>
 
     <div class="project-card">
-      <div class="video-wrap"><iframe src="https://www.youtube.com/embed/SJnMXIPeoEc" allowfullscreen></iframe></div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/SJnMXIPeoEc" title="Medics Reveal Promo" loading="lazy" allowfullscreen></iframe>
+      </div>
       <div class="project-cat">Client Work &amp; Social</div>
       <h3>Medics Reveal Promo</h3>
       <p>Promotional content for the Medics' Reveal show at the Usher Hall, Edinburgh.</p>
     </div>
 
     <div class="project-card">
-      <div class="video-wrap"><iframe src="https://www.youtube.com/embed/videoseries?list=PLFJXr-o-H0SEIljAUgJ6YQqlXrkiVCLIo" allowfullscreen></iframe></div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/videoseries?list=PLFJXr-o-H0SEIljAUgJ6YQqlXrkiVCLIo" title="Cavell for Congress playlist" loading="lazy" allowfullscreen></iframe>
+      </div>
       <div class="project-cat">Client Work</div>
       <h3>Cavell for Congress</h3>
       <p>Produced most of the campaign's video content, alongside social graphics and broader communications strategy.</p>
     </div>
 
     <div class="project-card">
-      <div class="video-wrap"><iframe src="https://www.youtube.com/embed/videoseries?list=PLFJXr-o-H0SH7i_MYg70GyR4T_lhar2Cp" allowfullscreen></iframe></div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/videoseries?list=PLFJXr-o-H0SH7i_MYg70GyR4T_lhar2Cp" title="How to Citizen playlist" loading="lazy" allowfullscreen></iframe>
+      </div>
       <div class="project-cat">Client Work</div>
       <h3>How to Citizen</h3>
       <p>Shaped episodes of an award-winning podcast into platform-specific cuts for digital and social audiences.</p>
@@ -419,7 +992,6 @@ footer a:hover { color: var(--accent); }
       </div>
       <p>Landscape and travel photography shot across the US, Peru, Scotland, and beyond.</p>
     </div>
-
   </div>
 </div>
 
@@ -428,9 +1000,10 @@ footer a:hover { color: var(--accent); }
     <span class="section-label">Contact</span>
     <div class="section-line"></div>
   </div>
+
   <div class="contact-grid">
     <div class="contact-aside">
-      <p>Open to freelance projects, production roles, and collaboration in the UK and US.</p>
+      <p>Open to freelance projects, production roles, and collaboration remotely or in Boston, New York, or London.</p>
       <ul class="contact-links">
         <li><a href="mailto:leorasoib@gmail.com">leorasoib@gmail.com</a></li>
         <li><a href="https://www.linkedin.com/in/leorasoibelman" target="_blank">LinkedIn</a></li>
@@ -438,7 +1011,7 @@ footer a:hover { color: var(--accent); }
       </ul>
     </div>
     <div class="contact-note">
-      <strong>Next up:</strong> based in London from October 2026, after a summer with the USTA. Open to production roles, live or non-live, plus social media and broadcast roles in sports, on either side of the Atlantic.
+      <strong>Availability:</strong> Open to remote work or opportunities in Boston, New York, or London, with the right to work in the UK &amp; EU.
     </div>
   </div>
 </div>
@@ -449,21 +1022,97 @@ footer a:hover { color: var(--accent); }
 </footer>
 
 <script>
-  function goTo(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); }
-  function openLB(src) { document.getElementById('lb-img').src = src; document.getElementById('lightbox').classList.add('active'); }
-  function closeLB() { document.getElementById('lightbox').classList.remove('active'); }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); });
+  // Keep anchor destinations below the fixed navigation.
+  const nav = document.querySelector('nav');
+  const navLinks = [...nav.querySelectorAll('.nav-links a')];
+  const sections = navLinks.map(link =>
+    document.querySelector(link.getAttribute('href'))
+  );
 
-  // Load About photos whatever the file extension (.jpg, .jpeg, .png...)
+  let scrollPending = false;
+
+  function updateNavigation() {
+    scrollPending = false;
+
+    const offset = nav.getBoundingClientRect().height + 20;
+    let active = null;
+
+    sections.forEach(section => {
+      if (section.getBoundingClientRect().top <= offset + 40) {
+        active = section.id;
+      }
+    });
+
+    const atBottom =
+      window.scrollY > 0 &&
+      window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 4;
+
+    if (atBottom) {
+      active = 'contact';
+    }
+
+    navLinks.forEach(link => {
+      if (link.getAttribute('href') === '#' + active) {
+        link.setAttribute('aria-current', 'location');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  }
+
+  const navResize = new ResizeObserver(() => {
+    document.documentElement.style.setProperty(
+      '--nav-offset',
+      (nav.getBoundingClientRect().height + 20) + 'px'
+    );
+
+    updateNavigation();
+  });
+
+  navResize.observe(nav);
+
+  window.addEventListener('scroll', () => {
+    if (!scrollPending) {
+      scrollPending = true;
+      requestAnimationFrame(updateNavigation);
+    }
+  }, { passive: true });
+
+  updateNavigation();
+
+  // Photo lightbox.
+  function openLB(src) {
+    document.getElementById('lb-img').src = src;
+    document.getElementById('lightbox').classList.add('active');
+  }
+
+  function closeLB() {
+    document.getElementById('lightbox').classList.remove('active');
+  }
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      closeLB();
+    }
+  });
+
+  // Load About photos regardless of their file extension.
   document.querySelectorAll('img[data-base]').forEach(img => {
-    const exts = ['.jpg', '.jpeg', '.JPG', '.JPEG', '.png', '.PNG'];
-    let i = 0;
+    const extensions = ['.jpg', '.jpeg', '.JPG', '.JPEG', '.png', '.PNG'];
+    let index = 0;
+
     img.onerror = () => {
-      i++;
-      if (i < exts.length) img.src = img.dataset.base + exts[i];
-      else img.style.display = 'none';
+      index++;
+
+      if (index < extensions.length) {
+        img.src = img.dataset.base + extensions[index];
+      } else {
+        img.style.display = 'none';
+      }
     };
-    img.src = img.dataset.base + exts[0];
+
+    img.src = img.dataset.base + extensions[0];
   });
 
   document.querySelectorAll('.gallery-img').forEach(img => {
@@ -472,8 +1121,11 @@ footer a:hover { color: var(--accent); }
 </script>
 
 <script>
-  window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+  window.si = window.si || function () {
+    (window.siq = window.siq || []).push(arguments);
+  };
 </script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
+
 </body>
 </html>
