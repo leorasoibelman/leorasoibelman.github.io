@@ -125,11 +125,6 @@ nav {
 .hero-inner {
   max-width: 1100px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 540px) 340px;
-  justify-content: center;
-  gap: 3.5rem;
-  align-items: center;
 }
 
 .hero-name {
@@ -192,23 +187,28 @@ nav {
   background: transparent;
 }
 
-/* HERO PHOTO */
+/* HERO BANNER */
 
-.hero-photo {
-  margin: 0;
-  padding: 6px;
-  border: 1.5px solid var(--accent-deep);
-  border-radius: 0.65rem;
-  background: var(--bg-2);
+.hero-banner {
+  margin: 2.75rem calc(-1 * clamp(1.25rem,5vw,3rem)) -2.5rem;
+  height: clamp(230px, 38vw, 420px);
+  position: relative;
+  overflow: hidden;
 }
 
-.hero-photo img {
+.hero-banner img {
   width: 100%;
-  aspect-ratio: 1;
+  height: 100%;
   object-fit: cover;
-  object-position: center 80%;
+  object-position: 62% 30%;
   display: block;
-  border-radius: 0.35rem;
+}
+
+.hero-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(33,25,51,0.5) 0%, rgba(22,18,31,0) 32%, rgba(22,18,31,0) 55%, var(--bg) 100%);
 }
 
 /* SECTIONS */
@@ -605,10 +605,6 @@ button:focus-visible {
 /* TABLET */
 
 @media (max-width: 900px) {
-  .hero-inner {
-    grid-template-columns: 1fr 260px;
-    gap: 2rem;
-  }
 
   .about-grid,
   .contact-grid {
@@ -662,15 +658,14 @@ button:focus-visible {
     padding-bottom: 1.75rem;
   }
 
+  .hero-banner {
+    margin-bottom: -1.75rem;
+    height: 230px;
+  }
+
   .hero-inner {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-  }
-
-  .hero-photo {
-    width: 100%;
-    max-width: 300px;
-    justify-self: center;
   }
 
   .section-wrap {
@@ -748,10 +743,10 @@ button:focus-visible {
         <a href="#contact" class="btn btn-outline">Get in Touch</a>
       </div>
     </div>
-    <figure class="hero-photo">
-      <img src="images/hero.jpeg" alt="Leora Soibelman at the US Open" />
-    </figure>
   </div>
+  <figure class="hero-banner">
+    <img data-base="images/about2" alt="Leora filming from a booth overlooking Arthur Ashe Stadium at night during the US Open" />
+  </figure>
 </section>
 
 <div class="section-wrap" id="reel">
@@ -783,9 +778,7 @@ button:focus-visible {
     </div>
 
     <div class="about-photos">
-      <img data-base="images/about1" alt="Leora" class="gallery-img" />
-      <img data-base="images/about2" alt="Leora" class="gallery-img" />
-      <img data-base="images/about3" alt="Leora" class="gallery-img" />
+      <img src="images/hero.jpeg" alt="Leora Soibelman at the US Open" class="gallery-img" />
     </div>
   </div>
 </div>
